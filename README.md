@@ -23,7 +23,7 @@ The aim behind this project is to demonstrate my skills in the following areas:
         
         -   As a first time visitor, I want to be able to understand the rules of the game.
         
-        -   As a fist time visitor, I want to play the game.
+        -   As a first time visitor, I want to play the game.
 
     -   #### Returning Visitor Goals
         -   As a returning visitor, I want to be able to play a different character.
