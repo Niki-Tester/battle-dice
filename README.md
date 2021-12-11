@@ -50,6 +50,11 @@ The aim behind this project is to demonstrate my skills in the following areas:
 *   ### Wireframes
     -   #### Mobile:
         -   [Main Menu](doc/wireframes/mobile/MainMenu.png)
+        -   [Settings Menu](doc/wireframes/mobile/Settings.png)
+        -   [How To Play Menu](doc/wireframes/mobile/HelpRules.png)
+        -   [Game Play Start](doc/wireframes/mobile/GameStart.png)
+        -   [Game Play Round Result](doc/wireframes/mobile/GameRoundResult.png)
+        -   [Game Play End](doc/wireframes/mobile/GameEnd.png)
 
     -   #### Desktop:
         -   
