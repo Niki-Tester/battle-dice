@@ -47,6 +47,13 @@ main {
     position: relative;
 }
 
+h2 {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-family: 'Rock Salt', sans-serif;
+    text-shadow: 10px 10px 5px #000;
+}
+
 /* #endregion */
 
 /* #region Main Menu */
@@ -89,13 +96,6 @@ main {
     justify-content: center;
     align-items: center;
     height: 100%;
-}
-
-#settingsMenu h2 {
-    color: var(--text-light);
-    font-size: 2rem;
-    font-family: 'Rock Salt', sans-serif;
-    text-shadow: 10px 10px 5px #000;
 }
 
 #settingsMenu .settingGroup {
@@ -154,4 +154,35 @@ main {
 }
 
 /* #endregion */
-;
+
+/* #region Settings Window */
+#howToPlayMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#howToPlayMenu p {
+    font-family: sans-serif;
+    color: var(--text-light);
+    font-size: 1.2rem;
+    max-width: 80%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#howToPlayMenu p>span {
+    font-weight: bold;
+    color: var(--button-gold);
+
+}
+
+#howToPlayMenu button {
+    margin-top: 2rem;
+    width: 70%;
+
+}
+
+/* #endregion */
