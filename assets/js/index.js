@@ -11,7 +11,7 @@ messageClose.addEventListener('click', closeMessage)
 sections.forEach(section => {
     if (section.id === 'messageBox') return
     if (section.id === 'mainMenu') return
-    section.style.display = 'none';
+    section.style.display = 'none'
 })
 
 function buttonHandler(e) {
@@ -19,15 +19,17 @@ function buttonHandler(e) {
         case 'playButton':
             e.currentTarget.parentElement.style.display = 'none'
             sections.filter(section => section.id === 'gameWindow')[0].style.display = 'flex'
-            break;
+            break
+
         case 'settingsButton':
             e.currentTarget.parentElement.style.display = 'none'
             sections.filter(section => section.id === 'settingsMenu')[0].style.display = 'flex'
-            break;
+            break
+
         case 'howToPlayButton':
             e.currentTarget.parentElement.style.display = 'none'
             sections.filter(section => section.id === 'howToPlayMenu')[0].style.display = 'flex'
-            break;
+            break
 
         default:
             if (e.currentTarget.classList.contains('menuButton')) {
