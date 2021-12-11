@@ -57,7 +57,12 @@ The aim behind this project is to demonstrate my skills in the following areas:
         -   [Gameplay End](doc/wireframes/mobile/GameEnd.png)
 
     -   #### Desktop:
-        -   
+        -   [Main Menu](doc/wireframes/desktop/MainMenu.png)
+        -   [Settings Menu](doc/wireframes/desktop/Settings.png)
+        -   [How To Play Menu](doc/wireframes/desktop/HelpRules.png)
+        -   [Gameplay Start](doc/wireframes/desktop/GameStart.png)
+        -   [Gameplay Round Result](doc/wireframes/desktop/GameRoundResult.png)
+        -   [Gameplay End](doc/wireframes/desktop/GameEnd.png)   
 
 
 ## Features
