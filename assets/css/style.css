@@ -32,6 +32,7 @@ body {
     width: 100vw;
     background-image: url('../img/wall128x128.png');
     background-color: var(--bg-dark);
+    background-attachment: fixed;
     font-family: 'Acme', sans-serif;
     font-size: 10px;
     color: var(--text-light);
