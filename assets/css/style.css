@@ -23,4 +23,16 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../img/wall128x128.png');
+    background-color: var(--bg-dark);
+    font-family: 'Acme', sans-serif;
+    font-size: 10px;
+}
+
+
 /* #endregion */
