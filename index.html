@@ -13,14 +13,32 @@
 
 <body>
     <main>
-        <section id="mainMenu">
+        <!-- <section id="mainMenu">
             <button id="soundControl"><i class="fas fa-volume-mute"></i></button>
             <img src="assets/img/dicelogo.png" alt="Battle Dice Logo" id="menuLogo">
             <button id="playButton">Play</button>
             <button id="settingsButton">Settings</button>
             <button id="howToPlayButton">How To Play</button>
+        </section> -->
+        <section id="settingsMenu">
+            <h2>Settings</h2>
+            <div class="settingGroup">
+                <label for="musicSlider">Music: <span>50&percnt;</span></label>
+                <div class="sliderGroup">
+                    <input type="range" name="musicSlider" id="musicSlider" />
+                    <button id="musicToggle"><i class="fas fa-volume-mute"></i></button>
+                </div>
+            </div>
+            <div class="settingGroup">
+                <label for="sfxSlider">Sfx: <span>50&percnt;</span></label>
+                <div class="sliderGroup">
+                    <input type="range" name="sfxSlider" id="sfxSlider" />
+                    <button id="sfxToggle"><i class="fas fa-volume-mute"></i></button>
+                </div>
+            </div>
+            <button id="resetButton">Clear Data</button>
+            <button class="menuButton">Menu</button>
         </section>
-        <section id="settingsMenu"></section>
         <section id="howToPlayMenu"></section>
         <section id="gameWindow"></section>
     </main>
