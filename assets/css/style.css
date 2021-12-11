@@ -34,6 +34,7 @@ body {
     background-color: var(--bg-dark);
     font-family: 'Acme', sans-serif;
     font-size: 10px;
+    color: var(--text-light);
 }
 
 button {
@@ -187,6 +188,74 @@ h2 {
     margin-top: 2rem;
     width: 70%;
 
+}
+
+/* #endregion */
+
+/* #region Game Window */
+#gameWindow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#gameWindow img {
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+}
+
+#gameWindow p {
+    font-size: 1rem;
+    margin: 1rem;
+    text-align: center;
+    text-shadow: 3px 3px 5px #000;
+}
+
+#gameWindow p span {
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+#gameWindow #dice img {
+    height: 250px;
+}
+
+#gameWindow #player,
+#gameWindow #opponent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gameWindow #player>div,
+#gameWindow #opponent>div {
+    position: relative;
+}
+
+#gameWindow #player>div>p {
+    position: absolute;
+    top: 55px;
+    left: 15px;
+}
+
+#gameWindow #opponent>div>p {
+    position: absolute;
+    top: 55px;
+    left: 15px;
+}
+
+#gameWindow #gameButtons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.5rem 0;
+    width: 100%;
+}
+
+#gameWindow button {
+    min-width: 30%;
 }
 
 /* #endregion */
