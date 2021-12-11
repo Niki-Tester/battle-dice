@@ -1,1 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Rock+Salt&display=swap');
+
+/* #region Utilities / Default Styles */
+:root {
+    /* Text Colours */
+    --text-light: #fafafa;
+    --text-dark: #555;
+    --text-accent: #910000;
+
+    /* Background Colours */
+    --bg-light: #fafafa;
+    --bg-dark: #555;
+    --bg-accent-dark: #660000;
+    --bg-accent: #910000;
+
+    /* Other Colours */
+    --button-gold: #f4df5e;
+}
+
+
+/* #endregion */
