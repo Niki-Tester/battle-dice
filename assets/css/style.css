@@ -60,6 +60,41 @@ h2 {
     text-shadow: 10px 10px 5px #000;
 }
 
+#messageBox {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    z-index: 1;
+    transform: translateY(-50px);
+    transition: transform ease-in-out 300ms;
+}
+
+#messageBox #message {
+    font-size: 1rem;
+}
+
+#messageBox i {
+    cursor: pointer;
+    font-size: 1.2rem;
+    position: absolute;
+    right: 15px;
+}
+
+.error {
+    background-color: darkred;
+}
+
+.warn {
+    background-color: darkgoldenrod;
+}
+
+.success {
+    background-color: darkgreen;
+}
+
 /* #endregion */
 
 /* #region Main Menu */
