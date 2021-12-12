@@ -69,7 +69,8 @@ h2 {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 30px;
+    /* height: 30px; */
+    padding: 0.25rem 0;
     z-index: 1;
     transform: translateY(-50px);
     transition: transform ease-in-out 300ms;
@@ -77,6 +78,8 @@ h2 {
 
 #messageBox #message {
     font-size: 1rem;
+    max-width: 80%;
+    text-align: center;
 }
 
 #messageBox i {
