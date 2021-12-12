@@ -38,14 +38,17 @@ body {
     color: var(--text-light);
 }
 
-button {
+button,
+.btn {
     background-color: var(--button-gold);
+    color: #000;
     border: none;
     padding: 0.25rem 0.5rem;
     font-size: 1.5rem;
     font-family: 'Acme', sans-serif;
     box-shadow: 2px 2px 10px #000;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 main {
@@ -196,7 +199,7 @@ h2 {
 
 /* #endregion */
 
-/* #region Settings Window */
+/* #region How To Play Window */
 #howToPlayMenu {
     display: flex;
     flex-direction: column;
@@ -292,6 +295,52 @@ h2 {
 
 #gameWindow button {
     min-width: 30%;
+}
+
+/* #endregion */
+
+/* #region 404 - Not Found */
+#notfound {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+}
+
+#notfound img {
+    height: 200px;
+    -webkit-filter: drop-shadow(10px 10px 5px #222);
+    filter: drop-shadow(10px 10px 5px #222);
+}
+
+#notfound h1 {
+    font-size: 1.2rem;
+    font-family: 'Rock Salt', sans-serif;
+    text-shadow: 6px 6px 5px #222;
+}
+
+#notfound p {
+    font-size: 1rem;
+    text-align: center;
+    max-width: 70%;
+    margin-top: 1rem;
+}
+
+#notfound p:nth-of-type(2) {
+    margin-top: 2rem;
+}
+
+#notfound a {
+    text-decoration: none;
+    margin: 1rem;
+}
+
+#notfound #resetButton {
+    margin-top: 1rem;
+    background-color: var(--bg-accent);
+    color: var(--text-light);
+    font-size: 1rem;
 }
 
 /* #endregion */

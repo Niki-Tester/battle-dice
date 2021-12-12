@@ -11,9 +11,25 @@
 </head>
 
 <body>
-    <h1>Page Not Found!</h1>
-    <p>If you would like to return to the home page, use the below link.</p>
-    <a href="/battle-dice/">Home</a>
+    <section id="notfound">
+        <img src="assets/img/dicelogo.png" alt="Battle Dice Logo">
+        <h1>Page Not Found!</h1>
+        <p>If you would like to goto the home page, use the button below.</p>
+        <a href="/battle-dice/" class="btn">Home</a>
+        <p>If the page still fails to load, you can try clearing local storage.</p>
+        <p>This will mean all game progress will be lost.</p>
+        <button id="resetButton">Clear Storage</button>
+    </section>
+    <script>
+        const resetButton = document.getElementById('resetButton');
+        const result = resetButton.addEventListener('click', e => {
+            const message =
+                'Are you sure you want to clear your local storage, you will lose all game progress.'
+            if (confirm(message)) {
+                localStorage.clear();
+            }
+        });
+    </script>
 </body>
 
 </html>
