@@ -22,7 +22,7 @@
     </section>
     <script>
         const resetButton = document.getElementById('resetButton');
-        const result = resetButton.addEventListener('click', e => {
+        resetButton.addEventListener('click', e => {
             const message =
                 'Are you sure you want to clear your local storage, you will lose all game progress.'
             if (confirm(message)) {
