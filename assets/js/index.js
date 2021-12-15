@@ -37,6 +37,10 @@ function buttonHandler(e) {
             windowHandler(e, 'mainMenu');
             break;
 
+        case 'resetButton':
+            clearStorage();
+            break;
+
         default:
             messageHandler(`${e.currentTarget.id} button not handled`, 'error');
     }
@@ -73,4 +77,12 @@ function windowHandler(e, sectionID) {
     }
     sections.filter(section => section.id === sectionID)[0]
         .style.display = 'flex';
+}
+
+function clearStorage() {
+    const message =
+        'Are you sure you want to clear your local storage, you will lose all game progress.'
+    if (confirm(message)) {
+        localStorage.clear();
+    }
 }
