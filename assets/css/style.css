@@ -29,7 +29,6 @@
 
 body {
     height: 100vh;
-    width: 100vw;
     background-image: url('../img/wall128x128.png');
     background-color: var(--bg-dark);
     background-attachment: fixed;
@@ -49,6 +48,7 @@ button,
     box-shadow: 2px 2px 10px #000;
     border-radius: 5px;
     cursor: pointer;
+    width: 70%;
 }
 
 main {
@@ -61,6 +61,13 @@ h2 {
     font-size: 2rem;
     font-family: 'Rock Salt', sans-serif;
     text-shadow: 10px 10px 5px #000;
+}
+
+h3 {
+    color: var(--text-light);
+    font-size: 1rem;
+    font-family: 'Rock Salt', sans-serif;
+    text-shadow: 8px 8px 5px #000;
 }
 
 #messageBox {
@@ -100,6 +107,27 @@ h2 {
     background-color: darkgreen;
 }
 
+noscript {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: var(--bg-accent-dark);
+    font-size: 1rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+noscript h3 {
+    text-align: center;
+    color: var(--text-light);
+    font-family: sans-serif;
+}
+
 /* #endregion */
 
 /* #region Main Menu */
@@ -131,6 +159,60 @@ h2 {
 #mainMenu #howToPlayButton {
     margin-top: 2rem;
     width: 70%;
+}
+
+/* #endregion */
+
+/* #region User Data */
+#userData {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    height: 100%;
+}
+
+#userData form {
+    display: flex;
+    flex-direction: column;
+}
+
+#userData label {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    text-shadow: 8px 8px 5px #000;
+}
+
+#userData input {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 3px 3px 12px #000;
+    font-family: 'Rock salt', sans-serif;
+    border: none;
+    padding: 0 0.3rem;
+    border-radius: 12px;
+
+}
+
+#userData button {
+    margin: 0.5rem 0;
+}
+
+#userData #characterSelection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#userData #characterSelection img {
+    height: 90px;
+    -webkit-filter: drop-shadow(10px 10px 5px #222);
+    filter: drop-shadow(10px 10px 5px #222);
+    margin: 0.5rem;
+}
+
+#userData .selected {
+    background-color: rgba(255, 208, 0, 0.8);
+    border-radius: 50%;
 }
 
 /* #endregion */
@@ -190,7 +272,6 @@ h2 {
 
 #settingsMenu>button {
     margin-top: 2rem;
-    width: 90%;
 }
 
 #settingsMenu #resetButton {
@@ -275,13 +356,13 @@ h2 {
     position: relative;
 }
 
-#gameWindow #player>div>p {
-    position: absolute;
-    top: 55px;
-    left: 15px;
+#gameWindow #opponentImg,
+#gameWindow #playerImg {
+    height: 100px;
 }
 
-#gameWindow #opponent>div>p {
+#gameWindow #opponent>div>p,
+#gameWindow #player>div>p {
     position: absolute;
     top: 55px;
     left: 15px;
@@ -296,7 +377,7 @@ h2 {
 }
 
 #gameWindow button {
-    min-width: 30%;
+    max-width: 30%;
 }
 
 /* #endregion */
