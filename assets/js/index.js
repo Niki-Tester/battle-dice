@@ -26,9 +26,8 @@ function buttonHandler(e) {
             break;
 
         case 'startGame':
-            validateInput();
+            validateInput(e);
             break;
-
 
         case 'settingsButton':
             windowHandler(e, 'settingsMenu');
@@ -143,7 +142,7 @@ function getPlayerImages() {
     });
 }
 
-function validateInput() {
+function validateInput(e) {
     const formInput = document.getElementById('username');
     const characters = [...document.querySelectorAll('.character')];
     const selectedCharacter = characters.filter(char => char.classList.contains('selected'))[0];
@@ -168,5 +167,14 @@ function validateInput() {
     }
 
     saveUserData(formInput.value, selectedCharacter.id)
-    startGame();
+    startGame(e);
+}
+
+function saveUserData(username, character) {
+    localStorage.setItem('username', username);
+    localStorage.setItem('character', character);
+}
+
+function startGame(e) {
+    windowHandler(e, 'gameWindow')
 }
