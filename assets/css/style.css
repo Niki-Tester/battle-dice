@@ -29,7 +29,7 @@
 
 body {
     height: 100vh;
-    background-image: url('../img/wall128x128.png');
+    background-image: url('../img/wall128x128.webp');
     background-color: var(--bg-dark);
     background-attachment: fixed;
     font-family: 'Acme', sans-serif;
