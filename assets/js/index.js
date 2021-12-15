@@ -137,3 +137,31 @@ function getPlayerImages() {
         })
     });
 }
+
+function validateInput() {
+    const formInput = document.getElementById('username');
+    const characters = [...document.querySelectorAll('.character')];
+    const selectedCharacter = characters.filter(char => char.classList.contains('selected'))[0];
+
+    if (formInput.value.length === 0) {
+        messageHandler('Please enter your name!', 'warn')
+        return
+    }
+
+    if (formInput.value.length > 12) {
+        messageHandler('Your name is too long, Maximum of 12 Characters!', 'warn')
+        return
+    }
+    if (formInput.value.length < 3) {
+        messageHandler('Your name is too short, Minimum of 3 Characters!', 'warn')
+        return
+    }
+
+    if (!selectedCharacter) {
+        messageHandler('Please select your character!', 'warn')
+        return
+    }
+
+    saveUserData(formInput.value, selectedCharacter.id)
+    startGame();
+}
