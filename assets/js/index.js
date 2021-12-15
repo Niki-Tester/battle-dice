@@ -113,6 +113,7 @@ function images(type, callback) {
 function getPlayerImages() {
     images('players', result => {
         const charSelection = document.getElementById('characterSelection');
+        charSelection.innerHTML = '';
         for (let i = 0; i < result.length; i++) {
             const element = result[i];
             const imageElem = document.createElement('img');
