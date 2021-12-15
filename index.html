@@ -58,19 +58,30 @@
             <button class="menuButton">Menu</button>
         </section>
 
+        <section id="userData">
+            <form>
+                <label for="username">Name:</label>
+                <input type="text" name="username" id="username">
+            </form>
+            <h3>Select Your Character</h3>
+            <div id="characterSelection"></div>
+            <button id="startGame">Start</button>
+            <button class="menuButton">Menu</button>
+        </section>
+
         <section id="gameWindow">
             <div id="opponent">
                 <div>
-                    <img id="opponentImg" src="assets/img/boss_lich.png" alt="" />
+                    <img id="opponentImg" src="assets/img/bosses/ooze.png" alt="" />
                     <p>Roll: 3</p>
                 </div>
                 <p><span>Name: </span>Lich</p>
                 <p><span>Health: </span>100</p>
             </div>
-            <div id="dice"><img src="assets/img//dice.gif" alt=""></div>
+            <div id="dice"><img src="assets/img/dice/dice.gif" alt=""></div>
             <div id="player">
                 <div>
-                    <img id="playerImg" src="assets/img/monster_goblin.png" alt="" />
+                    <img id="playerImg" src="assets/img/players/hagmatriarch.png" alt="" />
                     <p>Roll: 6</p>
                 </div>
                 <p><span>Name: </span>Niki</p>
@@ -81,6 +92,9 @@
                 <button id="gameMenuButton">Menu</button>
             </div>
         </section>
+        <noscript>
+            <h3>Your Browser Does Not Support JavaScript!</h3>
+        </noscript>
     </main>
 </body>
 
