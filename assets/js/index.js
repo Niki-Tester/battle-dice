@@ -89,7 +89,7 @@ function clearStorage() {
 
 function checkUserData(e) {
     if (localStorage.length === 0) {
-        getPlayerImages()
+        // getPlayerImages()
         windowHandler(e, 'userData')
     } else windowHandler(e, 'gameWindow')
 }
