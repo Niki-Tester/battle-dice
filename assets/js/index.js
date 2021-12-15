@@ -1,5 +1,4 @@
 let MESSAGE_TIME_OUT;
-
 const sections = [...document.querySelectorAll('section')];
 const messageBox = sections.filter(section => section.id === 'messageBox')[0];
 const messageClose = document.getElementById('messageClose');
@@ -9,8 +8,7 @@ buttons.forEach(button => button.addEventListener('click', buttonHandler));
 messageClose.addEventListener('click', closeMessage);
 
 sections.forEach(section => {
-    if (section.id === 'messageBox') return;
-    if (section.id === 'mainMenu') return;
+    if (section.id === 'messageBox' || section.id === 'mainMenu') return;
     section.style.display = 'none';
 });
 
@@ -24,26 +22,19 @@ function buttonHandler(e) {
 
     switch (e.currentTarget.id) {
         case 'playButton':
-            e.currentTarget.parentElement.style.display = 'none';
-            sections.filter(section => section.id === 'gameWindow')[0]
-                .style.display = 'flex';
+            checkUserData(e)
             break;
 
         case 'settingsButton':
-            e.currentTarget.parentElement.style.display = 'none';
-            sections.filter(section => section.id === 'settingsMenu')[0]
-                .style.display = 'flex';
+            windowHandler(e, 'settingsMenu');
             break;
 
         case 'howToPlayButton':
-            e.currentTarget.parentElement.style.display = 'none';
-            sections.filter(section => section.id === 'howToPlayMenu')[0]
-                .style.display = 'flex';
+            windowHandler(e, 'howToPlayMenu');
             break;
+
         case 'gameMenuButton':
-            e.currentTarget.parentElement.parentElement.style.display = 'none';
-            sections.filter(section => section.id === 'mainMenu')[0]
-                .style.display = 'flex';
+            windowHandler(e, 'mainMenu');
             break;
 
         default:
@@ -72,4 +63,14 @@ function clearStyles(type) {
         messageBox.classList.remove(type);
         messageBox.firstElementChild.textContent = '';
     }, 500);
+}
+
+function windowHandler(e, sectionID) {
+    if (e.target.id === 'gameMenuButton') {
+        e.currentTarget.parentElement.parentElement.style.display = 'none';
+    } else {
+        e.currentTarget.parentElement.style.display = 'none';
+    }
+    sections.filter(section => section.id === sectionID)[0]
+        .style.display = 'flex';
 }
