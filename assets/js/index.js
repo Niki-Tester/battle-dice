@@ -25,6 +25,11 @@ function buttonHandler(e) {
             checkUserData(e)
             break;
 
+        case 'startGame':
+            validateInput();
+            break;
+
+
         case 'settingsButton':
             windowHandler(e, 'settingsMenu');
             break;
