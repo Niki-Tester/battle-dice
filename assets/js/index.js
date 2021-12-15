@@ -89,7 +89,50 @@ function clearStorage() {
 
 function checkUserData(e) {
     if (localStorage.length === 0) {
-        // getPlayerImages()
+        getPlayerImages()
         windowHandler(e, 'userData')
     } else windowHandler(e, 'gameWindow')
+}
+
+function images(type, callback) {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+            const responseText = xhttp.responseText;
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(responseText, 'text/html')
+            const files = doc.getElementById('files');
+            const list = [...files.children].filter(item => item.firstElementChild.textContent != '..')
+            if (callback) callback(list);
+        }
+    };
+    xhttp.open("GET", `assets/img/${type}`, true);
+    xhttp.send();
+}
+
+function getPlayerImages() {
+    images('players', result => {
+        const charSelection = document.getElementById('characterSelection');
+        for (let i = 0; i < result.length; i++) {
+            const element = result[i];
+            const imageElem = document.createElement('img');
+            const src = `assets/img/players/${element.firstElementChild.children[0].textContent}`
+            imageElem.src = src;
+            imageElem.classList.add('character');
+            const charName = element.firstElementChild.children[0].textContent.replace('.webp', '');
+            imageElem.id = charName
+            charSelection.append(imageElem);
+        }
+
+        const characters = document.querySelectorAll('.character');
+
+        characters.forEach(character => {
+            character.addEventListener('click', e => {
+                characters.forEach(character => {
+                    character.classList.remove('selected')
+                })
+                e.currentTarget.classList.add('selected')
+            });
+        })
+    });
 }
