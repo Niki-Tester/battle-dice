@@ -286,15 +286,19 @@ noscript h3 {
 #howToPlayMenu {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 100%;
+}
+
+#howToPlayMenu h2 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-top: 1rem;
 }
 
 #howToPlayMenu p {
     font-family: sans-serif;
     color: var(--text-light);
-    font-size: 1.2rem;
+    font-size: 1rem;
     max-width: 80%;
     text-align: center;
     margin-top: 1rem;
@@ -307,9 +311,8 @@ noscript h3 {
 }
 
 #howToPlayMenu button {
-    margin-top: 2rem;
     width: 70%;
-
+    margin: 1.5rem 0;
 }
 
 /* #endregion */
