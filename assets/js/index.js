@@ -51,12 +51,13 @@ function buttonHandler(e) {
 }
 
 function messageHandler(message, type) {
+    window.clearTimeout(MESSAGE_TIME_OUT)
     messageBox.classList.add(type);
     messageBox.style.transform = 'translateY(0px)';
     messageBox.firstElementChild.textContent = message;
     MESSAGE_TIME_OUT = setTimeout(() => {
         clearStyles(type);
-    }, 10000);
+    }, 7000);
 }
 
 function closeMessage() {
@@ -168,6 +169,7 @@ function validateInput(e) {
 
     saveUserData(formInput.value, selectedCharacter.id)
     startGame(e);
+    formInput.value = ''
 }
 
 function saveUserData(username, character) {
