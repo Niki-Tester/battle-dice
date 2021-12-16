@@ -341,6 +341,7 @@ noscript h3 {
 #gameWindow p span {
     font-weight: bold;
     letter-spacing: 0.1rem;
+    display: block;
 }
 
 #gameWindow #dice img {
@@ -352,6 +353,7 @@ noscript h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: capitalize;
 }
 
 #gameWindow #player>div,
