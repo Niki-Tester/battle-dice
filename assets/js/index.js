@@ -1,3 +1,4 @@
+import opponentImages from '../data/opponentImages.js'
 let MESSAGE_TIME_OUT;
 const sections = [...document.querySelectorAll('section')];
 const messageBox = sections.filter(section => section.id === 'messageBox')[0];
@@ -11,6 +12,8 @@ sections.forEach(section => {
     if (section.id === 'messageBox' || section.id === 'mainMenu') return;
     section.style.display = 'none';
 });
+
+console.log(opponentImages)
 
 function buttonHandler(e) {
     if (e.currentTarget.classList.contains('menuButton')) {
