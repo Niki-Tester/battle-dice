@@ -1,4 +1,5 @@
 import opponentImages from '../data/opponentImages.js'
+import playerImages from '../data/playerImages.js'
 let MESSAGE_TIME_OUT;
 const sections = [...document.querySelectorAll('section')];
 const messageBox = sections.filter(section => section.id === 'messageBox')[0];
@@ -12,8 +13,6 @@ sections.forEach(section => {
     if (section.id === 'messageBox' || section.id === 'mainMenu') return;
     section.style.display = 'none';
 });
-
-console.log(opponentImages)
 
 function buttonHandler(e) {
     if (e.currentTarget.classList.contains('menuButton')) {
@@ -102,35 +101,14 @@ function checkUserData(e) {
     } else startGame(e);
 }
 
-function getImages(type, callback) {
-    const xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        if (this.readyState === 4 && this.status === 200) {
-            const responseText = xhttp.responseText;
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(responseText, 'text/html');
-            const files = doc.getElementById('files');
-            const imageURL = [...files.children]
-                .filter(item => item.firstElementChild.textContent != '..');
-            if (callback) callback(imageURL);
-        }
-    };
-
-    xhttp.open("GET", `assets/img/${type}`, true);
-    xhttp.send();
-}
-
 function getPlayerImages() {
     const charSelection = document.getElementById('characterSelection');
     charSelection.innerHTML = '';
 
-    getImages('players', result => {
-        for (let i = 0; i < result.length; i++) {
-            createImgElement(result[i]);
-        }
-        addCharEventListeners();
-    });
-
+    for (let i = 0; i < playerImages.length; i++) {
+        createImgElement(playerImages[i]);
+    }
+    addCharEventListeners();
 }
 
 function characterSelection() {
@@ -157,13 +135,14 @@ function addCharEventListeners() {
 }
 
 function createImgElement(image) {
+    console.log(image)
     const charSelection = document.getElementById('characterSelection');
     const imageElem = document.createElement('img');
-    const src = `assets/img/players/${image.firstElementChild.children[0].textContent}`;
+    const src = `assets/img/players/${image.fileName}`;
 
     imageElem.src = src;
     imageElem.classList.add('character');
-    imageElem.id = image.firstElementChild.children[0].textContent.replace('.webp', '');
+    imageElem.id = image.fileName.replace('.webp', '');
     charSelection.append(imageElem);
 }
 

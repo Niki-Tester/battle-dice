@@ -12,7 +12,7 @@ const playerImages = [{
     },
     {
         name: "Guardian",
-        fileName: "sanctumgardian.webp"
+        fileName: "sanctumguardian.webp"
     },
     {
         name: "Giant",
