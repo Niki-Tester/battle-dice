@@ -111,6 +111,14 @@ function getPlayerImages() {
     addCharEventListeners();
 }
 
+function addCharEventListeners() {
+    const characters = document.querySelectorAll('.character');
+
+    characters.forEach(character => {
+        character.addEventListener('click', characterSelection);
+    });
+}
+
 function characterSelection() {
     const characters = document.querySelectorAll('.character');
 
@@ -126,16 +134,7 @@ function characterSelection() {
     this.classList.add('selected');
 }
 
-function addCharEventListeners() {
-    const characters = document.querySelectorAll('.character');
-
-    characters.forEach(character => {
-        character.addEventListener('click', characterSelection);
-    });
-}
-
 function createImgElement(image) {
-    console.log(image)
     const charSelection = document.getElementById('characterSelection');
     const imageElem = document.createElement('img');
     const src = `assets/img/players/${image.fileName}`;
@@ -193,7 +192,7 @@ function saveUserData(username, character) {
 
 function startGame(e) {
     const playerImageElement = document.getElementById('playerImg');
-    playerImageElement.src = 'assets/img/players/ratling.webp';
+    playerImageElement.src = `assets/img/players/${localStorage.getItem('character')}.webp`;
     const playerNameElement = document.getElementById('playerName');
     const playerName = localStorage.getItem('username');
     playerNameElement.innerHTML = `<span>Name: </span> ${playerName}`;
