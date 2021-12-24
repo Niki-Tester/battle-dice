@@ -1,4 +1,5 @@
 import playerImages from '../data/playerImages.js';
+import opponentImages from '../data/opponentImages.js';
 import Character from '../js/Character.js';
 
 let g_MessageTimeOut;
@@ -255,6 +256,22 @@ function setPlayerElements(data) {
     document.getElementById('playerHealth').textContent = data.hp;
     document.getElementById('playerImg').src = data.charIMG;
 }
+
+
+function createOpponent(opponent) {
+    const oppName = opponent.name;
+    const charIMG = `/assets/img/bosses/${opponent.fileName}`;
+    const boss = new Character(oppName, charIMG)
+    setBossElements(boss);
+}
+
+function setBossElements(data) {
+    document.getElementById('opponentName').textContent = data.name;
+    document.getElementById('opponentRoll').textContent = data.roll;
+    document.getElementById('opponentHealth').textContent = data.hp;
+    document.getElementById('opponentImg').src = data.charIMG;
+}
+
 
 window.addEventListener('storage', e => {
     localStorage.setItem(e.key, e.oldValue);
