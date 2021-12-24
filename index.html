@@ -18,6 +18,7 @@
             <p id="message"></p>
             <i id="messageClose" class="fa fa-times-circle"></i>
         </section>
+
         <section id="mainMenu">
             <button id="soundControl"><i class="fas fa-volume-mute"></i></button>
             <img src="assets/img/dicelogo.webp" alt="Battle Dice Logo" id="menuLogo">
@@ -85,19 +86,19 @@
             <div id="opponent">
                 <div>
                     <img id="opponentImg" src="assets/img/bosses/ooze.webp" alt="" />
-                    <p>Roll: 3</p>
+                    <p>Roll: <span id="opponentRoll">3</span></p>
                 </div>
-                <p><span>Name: </span>Lich</p>
-                <p><span>Health: </span>100</p>
+                <p>Name: <span id="opponentName">Lich</span></p>
+                <p>Health: <span id="opponentHealth">100</span></p>
             </div>
             <div id="dice"><img src="assets/img/dice/dice.gif" alt=""></div>
             <div id="player">
                 <div>
-                    <img id="playerImg" src="assets/img/players/hagmatriarch.webp" alt="" />
-                    <p>Roll: 6</p>
+                    <img id="playerImg" src="" alt="" />
+                    <p>Roll: <span id="playerRoll">6</span></p>
                 </div>
-                <p id="playerName"></p>
-                <p id="playerHealth"><span>Health: </span>100</p>
+                <p>Name: <span id="playerName"></span></p>
+                <p>Health: <span id="playerHealth"></span></p>
             </div>
             <div id="gameButtons">
                 <button id="playerRoll">Roll</button>
