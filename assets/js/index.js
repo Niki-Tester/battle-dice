@@ -1,5 +1,6 @@
 import opponentImages from '../data/opponentImages.js'
 import playerImages from '../data/playerImages.js'
+import Character from '../js/Character.js'
 let MESSAGE_TIME_OUT;
 const sections = [...document.querySelectorAll('section')];
 const messageBox = sections.filter(section => section.id === 'messageBox')[0];
@@ -180,21 +181,41 @@ function validateInput(e) {
         return;
     }
 
-    saveUserData(username, selectedCharacter.id);
-    startGame(e);
+    startGame(e, username, selectedCharacter.id);
     formInput.value = '';
 }
 
-function saveUserData(username, character) {
-    localStorage.setItem('username', username);
-    localStorage.setItem('character', character);
+function startGame(e, username, character) {
+    if (!loadPlayerData()) {
+        const charIMG = `assets/img/players/${character}.webp`;
+        const player = new Character(username, charIMG);
+        savePlayerData(player)
+    }
+    console.log(loadPlayerData())
+
+    windowHandler(e, 'gameWindow')
 }
 
-function startGame(e) {
-    const playerImageElement = document.getElementById('playerImg');
-    playerImageElement.src = `assets/img/players/${localStorage.getItem('character')}.webp`;
-    const playerNameElement = document.getElementById('playerName');
-    const playerName = localStorage.getItem('username');
-    playerNameElement.innerHTML = `<span>Name: </span> ${playerName}`;
-    windowHandler(e, 'gameWindow');
+function savePlayerData(player) {
+    localStorage.setItem('name', player.name);
+    localStorage.setItem('charIMG', player.charIMG);
+    localStorage.setItem('level', player.level);
+    localStorage.setItem('hp', player.hp);
+    localStorage.setItem('dmgMultiplier', player.dmgMultiplier);
 }
+
+function loadPlayerData() {
+    if (localStorage.length != 0) {
+        const name = localStorage.getItem('name')
+        const charIMG = localStorage.getItem('charIMG')
+        const level = localStorage.getItem('level')
+        const hp = localStorage.getItem('hp')
+        const dmgMultiplier = localStorage.getItem('dmgMultiplier')
+
+        return new Character(name, charIMG, level, hp, dmgMultiplier)
+    } else return null
+}
+
+window.addEventListener('storage', e => {
+    localStorage.setItem(e.key, e.oldValue)
+})
