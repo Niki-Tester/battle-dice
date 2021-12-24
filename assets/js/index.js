@@ -1,4 +1,3 @@
-import opponentImages from '../data/opponentImages.js';
 import playerImages from '../data/playerImages.js';
 import Character from '../js/Character.js';
 let MESSAGE_TIME_OUT;
