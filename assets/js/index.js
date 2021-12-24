@@ -3,6 +3,12 @@ import Character from '../js/Character.js';
 
 let g_MessageTimeOut;
 
+window.addEventListener('DOMContentLoaded', () => {
+    addButtonListeners();
+    hideSections();
+    addMessageCloseListener();
+})
+
 function hideSections() {
     const sections = [...document.querySelectorAll('section')];
 
@@ -22,7 +28,6 @@ function addMessageCloseListener() {
     const messageClose = document.getElementById('messageClose');
     messageClose.addEventListener('click', closeMessage);
 }
-
 
 function buttonHandler(e) {
     const sections = [...document.querySelectorAll('section')];
@@ -236,7 +241,3 @@ function loadPlayerData() {
 window.addEventListener('storage', e => {
     localStorage.setItem(e.key, e.oldValue);
 });
-
-addButtonListeners();
-hideSections();
-addMessageCloseListener();
