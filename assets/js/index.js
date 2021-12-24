@@ -1,6 +1,6 @@
-import opponentImages from '../data/opponentImages.js'
-import playerImages from '../data/playerImages.js'
-import Character from '../js/Character.js'
+import opponentImages from '../data/opponentImages.js';
+import playerImages from '../data/playerImages.js';
+import Character from '../js/Character.js';
 let MESSAGE_TIME_OUT;
 const sections = [...document.querySelectorAll('section')];
 const messageBox = sections.filter(section => section.id === 'messageBox')[0];
@@ -166,6 +166,7 @@ function validateInput(e) {
         formInput.value = username;
         return;
     }
+
     if (username.length < 3) {
         messageHandler('Your name is too short, Minimum of 3 Characters!', 'warn');
         formInput.value = username;
@@ -188,14 +189,16 @@ function validateInput(e) {
 }
 
 function startGame(e, username, character) {
-    if (!loadPlayerData()) {
+    const playerData = loadPlayerData();
+    if (!playerData) {
         const charIMG = `assets/img/players/${character}.webp`;
         const player = new Character(username, charIMG);
-        savePlayerData(player)
+        savePlayerData(player);
     }
-    console.log(loadPlayerData())
 
-    windowHandler(e, 'gameWindow')
+    console.log(playerData);
+
+    windowHandler(e, 'gameWindow');
 }
 
 function savePlayerData(player) {
@@ -208,16 +211,16 @@ function savePlayerData(player) {
 
 function loadPlayerData() {
     if (localStorage.length != 0) {
-        const name = localStorage.getItem('name')
-        const charIMG = localStorage.getItem('charIMG')
-        const level = localStorage.getItem('level')
-        const hp = localStorage.getItem('hp')
-        const dmgMultiplier = localStorage.getItem('dmgMultiplier')
+        const name = localStorage.getItem('name');
+        const charIMG = localStorage.getItem('charIMG');
+        const level = localStorage.getItem('level');
+        const hp = localStorage.getItem('hp');
+        const dmgMultiplier = localStorage.getItem('dmgMultiplier');
 
-        return new Character(name, charIMG, level, hp, dmgMultiplier)
-    } else return null
+        return new Character(name, charIMG, level, hp, dmgMultiplier);
+    } else return null;
 }
 
 window.addEventListener('storage', e => {
-    localStorage.setItem(e.key, e.oldValue)
-})
+    localStorage.setItem(e.key, e.oldValue);
+});
