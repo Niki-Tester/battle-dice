@@ -3,20 +3,30 @@ import Character from '../js/Character.js';
 
 let g_MessageTimeOut;
 
-const sections = [...document.querySelectorAll('section')];
-const messageBox = sections.filter(section => section.id === 'messageBox')[0];
-const messageClose = document.getElementById('messageClose');
-const buttons = [...document.querySelectorAll('button')];
+function hideSections() {
+    const sections = [...document.querySelectorAll('section')];
 
-buttons.forEach(button => button.addEventListener('click', buttonHandler));
-messageClose.addEventListener('click', closeMessage);
+    sections.forEach(section => {
+        if (section.id === 'messageBox' || section.id === 'mainMenu') return;
+        section.style.display = 'none';
+    });
+}
 
-sections.forEach(section => {
-    if (section.id === 'messageBox' || section.id === 'mainMenu') return;
-    section.style.display = 'none';
-});
+function addButtonListeners() {
+    const buttons = [...document.querySelectorAll('button')];
+
+    buttons.forEach(button => button.addEventListener('click', buttonHandler));
+}
+
+function addMessageCloseListener() {
+    const messageClose = document.getElementById('messageClose');
+    messageClose.addEventListener('click', closeMessage);
+}
+
 
 function buttonHandler(e) {
+    const sections = [...document.querySelectorAll('section')];
+
     if (e.currentTarget.classList.contains('menuButton')) {
         e.currentTarget.parentElement.style.display = 'none';
         sections.filter(section => section.id === 'mainMenu')[0]
@@ -34,15 +44,15 @@ function buttonHandler(e) {
             break;
 
         case 'settingsButton':
-            windowHandler(e, 'settingsMenu');
+            windowHandler(e, 'settingsMenu', sections);
             break;
 
         case 'howToPlayButton':
-            windowHandler(e, 'howToPlayMenu');
+            windowHandler(e, 'howToPlayMenu', sections);
             break;
 
         case 'gameMenuButton':
-            windowHandler(e, 'mainMenu');
+            windowHandler(e, 'mainMenu', sections);
             break;
 
         case 'resetButton':
@@ -78,7 +88,7 @@ function clearStyles(type) {
     }, 500);
 }
 
-function windowHandler(e, sectionID) {
+function windowHandler(e, sectionID, sections) {
     if (e.target.id === 'gameMenuButton') {
         e.currentTarget.parentElement.parentElement.style.display = 'none';
     } else {
@@ -226,3 +236,7 @@ function loadPlayerData() {
 window.addEventListener('storage', e => {
     localStorage.setItem(e.key, e.oldValue);
 });
+
+addButtonListeners();
+hideSections();
+addMessageCloseListener();
