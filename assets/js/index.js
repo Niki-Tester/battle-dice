@@ -1,6 +1,8 @@
 import playerImages from '../data/playerImages.js';
 import Character from '../js/Character.js';
-let MESSAGE_TIME_OUT;
+
+let g_MessageTimeOut;
+
 const sections = [...document.querySelectorAll('section')];
 const messageBox = sections.filter(section => section.id === 'messageBox')[0];
 const messageClose = document.getElementById('messageClose');
@@ -53,17 +55,17 @@ function buttonHandler(e) {
 }
 
 function messageHandler(message, type) {
-    window.clearTimeout(MESSAGE_TIME_OUT);
+    window.clearTimeout(g_MessageTimeOut);
     messageBox.classList.add(type);
     messageBox.style.transform = 'translateY(0px)';
     messageBox.firstElementChild.textContent = message;
-    MESSAGE_TIME_OUT = setTimeout(() => {
+    g_MessageTimeOut = setTimeout(() => {
         clearStyles(type);
     }, 7000);
 }
 
 function closeMessage() {
-    window.clearTimeout(MESSAGE_TIME_OUT);
+    window.clearTimeout(g_MessageTimeOut);
     const type = messageBox.classList[0];
     clearStyles(type);
 }
@@ -188,14 +190,15 @@ function validateInput(e) {
 }
 
 function startGame(e, username, character) {
-    const playerData = loadPlayerData();
+    let playerData = loadPlayerData();
     if (!playerData) {
         const charIMG = `assets/img/players/${character}.webp`;
         const player = new Character(username, charIMG);
         savePlayerData(player);
+        playerData = loadPlayerData();
     }
 
-    console.log(playerData);
+
 
     windowHandler(e, 'gameWindow');
 }
