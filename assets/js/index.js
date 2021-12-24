@@ -20,7 +20,6 @@ function hideSections() {
 
 function addButtonListeners() {
     const buttons = [...document.querySelectorAll('button')];
-
     buttons.forEach(button => button.addEventListener('click', buttonHandler));
 }
 
@@ -41,11 +40,11 @@ function buttonHandler(e) {
 
     switch (e.currentTarget.id) {
         case 'playButton':
-            checkUserData(e);
+            checkUserData(e, sections);
             break;
 
         case 'startGame':
-            validateInput(e);
+            validateInput(e, sections);
             break;
 
         case 'settingsButton':
@@ -113,11 +112,11 @@ function clearStorage() {
     }
 }
 
-function checkUserData(e) {
+function checkUserData(e, sections) {
     if (localStorage.length === 0) {
         getPlayerImages();
-        windowHandler(e, 'userData');
-    } else startGame(e);
+        windowHandler(e, 'userData', sections);
+    } else startGame(e, null, null, sections);
 }
 
 function getPlayerImages() {
@@ -164,7 +163,7 @@ function createImgElement(image) {
     charSelection.append(imageElem);
 }
 
-function validateInput(e) {
+function validateInput(e, sections) {
     const formInput = document.getElementById('username');
     const characters = [...document.querySelectorAll('.character')];
     const selectedCharacter = characters.filter(char => char.classList.contains('selected'))[0];
@@ -200,22 +199,23 @@ function validateInput(e) {
         return;
     }
 
-    startGame(e, username, selectedCharacter.id);
+    startGame(e, username, selectedCharacter.id, sections);
     formInput.value = '';
 }
 
-function startGame(e, username, character) {
+function startGame(e, username, character, sections) {
     let playerData = loadPlayerData();
     if (!playerData) {
-        const charIMG = `assets/img/players/${character}.webp`;
+        const charIMG = `/assets/img/players/${character}.webp`;
         const player = new Character(username, charIMG);
         savePlayerData(player);
         playerData = loadPlayerData();
     }
 
+    loadOpponentData();
+    setPlayerElements(playerData);
 
-
-    windowHandler(e, 'gameWindow');
+    windowHandler(e, 'gameWindow', sections);
 }
 
 function savePlayerData(player) {
@@ -230,12 +230,30 @@ function loadPlayerData() {
     if (localStorage.length != 0) {
         const name = localStorage.getItem('name');
         const charIMG = localStorage.getItem('charIMG');
-        const level = localStorage.getItem('level');
         const hp = localStorage.getItem('hp');
+        const level = localStorage.getItem('level');
         const dmgMultiplier = localStorage.getItem('dmgMultiplier');
 
-        return new Character(name, charIMG, level, hp, dmgMultiplier);
+        return new Character(name, charIMG, hp, level, dmgMultiplier);
     } else return null;
+}
+
+function loadOpponentData() {
+    const playerLevel = localStorage.getItem('level');
+
+    if (playerLevel > opponentImages.length) {
+        const randomOpponent = Math.floor(Math.random() * opponentImages.length)
+        createOpponent(opponentImages[randomOpponent])
+    } else {
+        createOpponent(opponentImages[playerLevel])
+    }
+}
+
+function setPlayerElements(data) {
+    document.getElementById('playerName').textContent = data.name;
+    document.getElementById('playerRoll').textContent = data.roll;
+    document.getElementById('playerHealth').textContent = data.hp;
+    document.getElementById('playerImg').src = data.charIMG;
 }
 
 window.addEventListener('storage', e => {
