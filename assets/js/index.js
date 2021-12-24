@@ -83,8 +83,7 @@ function windowHandler(e, sectionID) {
     } else {
         e.currentTarget.parentElement.style.display = 'none';
     }
-    sections.filter(section => section.id === sectionID)[0]
-        .style.display = 'flex';
+    sections.filter(section => section.id === sectionID)[0].style.display = 'flex';
 }
 
 function clearStorage() {
@@ -92,6 +91,9 @@ function clearStorage() {
         'Are you sure you want to clear your local storage, you will lose all game progress.';
     if (confirm(message)) {
         localStorage.clear();
+        messageHandler('Game data cleared.', 'success');
+    } else {
+        messageHandler('Game data not cleared.', 'warn');
     }
 }
 
