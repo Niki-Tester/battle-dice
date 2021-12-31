@@ -33,6 +33,6 @@ const playerImages = [{
         name: "Werewolf",
         fileName: "werewolfcub.webp"
     }
-]
+];
 
 export default playerImages;
