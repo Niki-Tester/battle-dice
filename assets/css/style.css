@@ -37,8 +37,7 @@ body {
     color: var(--text-light);
 }
 
-button,
-.btn {
+button {
     background-color: var(--button-gold);
     color: #000;
     border: none;
@@ -49,6 +48,10 @@ button,
     border-radius: 5px;
     cursor: pointer;
     width: 70%;
+}
+
+button:disabled {
+    opacity: 0.5;
 }
 
 main {
@@ -106,6 +109,8 @@ h3 {
 .success {
     background-color: darkgreen;
 }
+
+
 
 noscript {
     display: flex;
