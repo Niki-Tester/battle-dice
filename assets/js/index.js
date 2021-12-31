@@ -64,6 +64,10 @@ function buttonHandler(e) {
             clearStorage();
             break;
 
+        case 'playerRollButton':
+            startRound();
+            break;
+
         default:
             messageHandler(`${e.currentTarget.id} button not handled`, 'error');
     }
@@ -270,6 +274,11 @@ function setBossElements(data) {
     document.getElementById('opponentRoll').textContent = data.roll;
     document.getElementById('opponentHealth').textContent = data.hp;
     document.getElementById('opponentImg').src = data.charIMG;
+}
+
+function startRound() {
+    const playerRollButton = document.getElementById('playerRollButton');
+    playerRollButton.disabled = true;
 }
 
 
