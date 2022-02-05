@@ -298,8 +298,6 @@ function createDice(diceId){
     diceArea.append(dice);
 }
 
-createDice('player');
-
 window.addEventListener('storage', e => {
     localStorage.setItem(e.key, e.oldValue);
 });
