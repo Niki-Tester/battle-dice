@@ -349,9 +349,7 @@ noscript h3 {
     display: block;
 }
 
-#gameWindow #dice img {
-    height: 250px;
-}
+
 
 #gameWindow #player,
 #gameWindow #opponent {
@@ -390,6 +388,53 @@ noscript h3 {
     max-width: 30%;
 }
 
+/* #region Dice */
+
+#gameWindow #diceArea {
+    height: 200px;
+    width: 200px;
+    position: relative;
+   background-color: brown;
+}
+
+#gameWindow #playerDice{
+    transform-style: preserve-3d;
+    transform: scale(0.2);
+}
+
+#gameWindow .dice-face{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.dice-face-1 {
+	background-image: url('../img/dice/1_dots.webp');
+	transform: rotateY(0deg) translateZ(100px);
+}
+.dice-face-2 {
+	background-image: url('../img/dice/5_dots.webp');
+	transform: rotateY(90deg) translateZ(100px);
+}
+.dice-face-3 {
+	background-image: url('../img/dice/6_dots.webp');
+	transform: rotateY(180deg) translateZ(100px);
+}
+.dice-face-4 {
+    background-image: url('../img/dice/2_dots.webp');
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.dice-face-5 {
+	background-image: url('../img/dice/4_dots.webp');
+	transform: rotateX(90deg) translateZ(100px);
+}
+.dice-face-6 {
+	background-image: url('../img/dice/3_dots.webp');
+	transform: rotateX(-90deg) translateZ(100px);
+}
+/* #endregion */
 /* #endregion */
 
 /* #region 404 - Not Found */
