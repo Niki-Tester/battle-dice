@@ -244,7 +244,7 @@ function loadPlayerData() {
 }
 
 function loadOpponentData() {
-    const playerLevel = localStorage.getItem('level');
+    const playerLevel = localStorage.getItem('level') || 0;
 
     if (playerLevel > opponentImages.length) {
         const randomOpponent = Math.floor(Math.random() * opponentImages.length)
@@ -252,6 +252,7 @@ function loadOpponentData() {
     } else {
         createOpponent(opponentImages[playerLevel])
     }
+
 }
 
 function setPlayerElements(data) {
@@ -281,6 +282,23 @@ function startRound() {
     playerRollButton.disabled = true;
 }
 
+function createDice(diceId){
+    const diceArea = document.getElementById('diceArea');
+    const dice = document.createElement('div');
+    
+    for (let i = 1; i <= 6; i++) {
+        const diceFace = document.createElement('div');
+        diceFace.classList.add(`dice-face`);
+        diceFace.classList.add(`dice-face-${i}`);
+        diceFace.innerText = `${i}`
+        dice.append(diceFace);
+    }
+    
+    dice.id = `${diceId}Dice`;
+    diceArea.append(dice);
+}
+
+createDice('player');
 
 window.addEventListener('storage', e => {
     localStorage.setItem(e.key, e.oldValue);
