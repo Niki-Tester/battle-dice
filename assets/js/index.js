@@ -212,7 +212,7 @@ function validateInput(e, sections) {
 function startGame(e, username, character, sections) {
 	let playerData = loadPlayerData();
 	if (!playerData) {
-		const charIMG = `/assets/img/players/${character}.webp`;
+		const charIMG = `assets/img/players/${character}.webp`;
 		const player = new Character(username, charIMG);
 		savePlayerData(player);
 		playerData = loadPlayerData();
@@ -264,7 +264,7 @@ function setPlayerElements(data) {
 
 function createOpponent(opponent) {
 	const oppName = opponent.name;
-	const charIMG = `/assets/img/bosses/${opponent.fileName}`;
+	const charIMG = `assets/img/bosses/${opponent.fileName}`;
 	const boss = new Character(oppName, charIMG);
 	setBossElements(boss);
 }
