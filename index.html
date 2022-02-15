@@ -1,114 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			src="https://kit.fontawesome.com/258b4b5b87.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<script type="module" src="assets/js/index.js"></script>
+		<title>Dice Battle</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/258b4b5b87.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <script type="module" src="assets/js/index.js"></script>
-    <title>Dice Battle</title>
-</head>
+	<body>
+		<main>
+			<section id="messageBox">
+				<p id="message"></p>
+				<i id="messageClose" class="fa fa-times-circle"></i>
+			</section>
 
-<body>
-    <main>
-        <section id="messageBox">
-            <p id="message"></p>
-            <i id="messageClose" class="fa fa-times-circle"></i>
-        </section>
+			<section id="mainMenu">
+				<button id="soundControl"><i class="fas fa-volume-mute"></i></button>
+				<img src="assets/img/dicelogo.webp" alt="Battle Dice Logo" id="menuLogo" />
+				<button id="playButton">Play</button>
+				<button id="settingsButton">Settings</button>
+				<button id="howToPlayButton">How To Play</button>
+			</section>
 
-        <section id="mainMenu">
-            <button id="soundControl"><i class="fas fa-volume-mute"></i></button>
-            <img src="assets/img/dicelogo.webp" alt="Battle Dice Logo" id="menuLogo">
-            <button id="playButton">Play</button>
-            <button id="settingsButton">Settings</button>
-            <button id="howToPlayButton">How To Play</button>
-        </section>
+			<section id="settingsMenu">
+				<h2>Settings</h2>
+				<div class="settingGroup">
+					<label for="musicSlider">Music: <span>50&percnt;</span></label>
+					<div class="sliderGroup">
+						<input type="range" name="musicSlider" id="musicSlider" />
+						<button id="musicToggle"><i class="fas fa-volume-mute"></i></button>
+					</div>
+				</div>
+				<div class="settingGroup">
+					<label for="sfxSlider">Sfx: <span>50&percnt;</span></label>
+					<div class="sliderGroup">
+						<input type="range" name="sfxSlider" id="sfxSlider" />
+						<button id="sfxToggle"><i class="fas fa-volume-mute"></i></button>
+					</div>
+				</div>
+				<button id="resetButton">Clear Data</button>
+				<button class="menuButton">Menu</button>
+			</section>
 
-        <section id="settingsMenu">
-            <h2>Settings</h2>
-            <div class="settingGroup">
-                <label for="musicSlider">Music: <span>50&percnt;</span></label>
-                <div class="sliderGroup">
-                    <input type="range" name="musicSlider" id="musicSlider" />
-                    <button id="musicToggle"><i class="fas fa-volume-mute"></i></button>
-                </div>
-            </div>
-            <div class="settingGroup">
-                <label for="sfxSlider">Sfx: <span>50&percnt;</span></label>
-                <div class="sliderGroup">
-                    <input type="range" name="sfxSlider" id="sfxSlider" />
-                    <button id="sfxToggle"><i class="fas fa-volume-mute"></i></button>
-                </div>
-            </div>
-            <button id="resetButton">Clear Data</button>
-            <button class="menuButton">Menu</button>
-        </section>
+			<section id="howToPlayMenu">
+				<h2>How To Play</h2>
+				<p>
+					The aim of the game is to <span>defeat</span> your opponent, by rolling the
+					highest on the die.
+				</p>
+				<p>
+					If you roll the <span>highest</span>, you will deal damage to your opponent
+					causing them to lose health.
+				</p>
+				<p>
+					If your opponent rolls higher than you, you will take <span>damage</span> and
+					lose health.
+				</p>
+				<p>
+					Each of you will continue to roll your dice, until either of you has 0 health
+					and is <span>killed</span>.
+				</p>
 
-        <section id="howToPlayMenu">
-            <h2>How To Play</h2>
-            <p>The aim of the game is to <span>defeat</span> your opponent, by rolling the highest on the die.</p>
-            <p>
-                If you roll the <span>highest</span>, you will deal damage to your opponent causing them to lose health.
-            </p>
-            <p>If your opponent rolls higher than you, you will take <span>damage</span> and lose health.</p>
-            <p>Each of you will continue to roll your dice, until either of you has 0 health and is
-                <span>killed</span>.
-            </p>
+				<h2>Character Creation</h2>
+				<p>
+					Pressing play in the main menu, will take you to the character selection screen.
+				</p>
+				<p>
+					You will need to enter your <span>name</span> or <span>username</span>, this
+					must be 3 or more characters long, but no loner than 12 characters.
+				</p>
+				<p>
+					If you have played previously your character selection, and name will be saved.
+				</p>
+				<p>
+					If would like to reset your profile, use the <span>"Clear Data"</span> button
+					found in the <span>"Settings"</span> menu
+				</p>
 
-            <h2>Character Creation</h2>
-            <p>Pressing play in the main menu, will take you to the character selection screen.</p>
-            <p>
-                You will need to enter your <span>name</span> or <span>username</span>, this must be 3 or more
-                characters long, but no loner than 12 characters.
-            </p>
-            <p>If you have played previously your character selection, and name will be saved.</p>
-            <p>If would like to reset your profile, use the <span>"Clear Data"</span> button found in the
-                <span>"Settings"</span> menu</p>
+				<button class="menuButton">Menu</button>
+			</section>
 
-            <button class="menuButton">Menu</button>
-        </section>
+			<section id="userData">
+				<form>
+					<label for="username">Name:</label>
+					<input type="text" name="username" id="username" />
+				</form>
+				<h3>Select Your Character</h3>
+				<div id="characterSelection"></div>
+				<button id="startGame">Start</button>
+				<button class="menuButton">Menu</button>
+			</section>
 
-        <section id="userData">
-            <form>
-                <label for="username">Name:</label>
-                <input type="text" name="username" id="username">
-            </form>
-            <h3>Select Your Character</h3>
-            <div id="characterSelection"></div>
-            <button id="startGame">Start</button>
-            <button class="menuButton">Menu</button>
-        </section>
-
-        <section id="gameWindow">
-            <div id="opponent">
-                <div>
-                    <img id="opponentImg" src="assets/img/bosses/ooze.webp" alt="" />
-                    <p>Roll: <span id="opponentRoll"></span></p>
-                </div>
-                <p>Name: <span id="opponentName"></span></p>
-                <p>Health: <span id="opponentHealth"></span></p>
-            </div>
-            <div id="dice"><img src="assets/img/dice/dice.gif" alt=""></div>
-            <div id="player">
-                <div>
-                    <img id="playerImg" src="" alt="" />
-                    <p>Roll: <span id="playerRoll"></span></p>
-                </div>
-                <p>Name: <span id="playerName"></span></p>
-                <p>Health: <span id="playerHealth"></span></p>
-            </div>
-            <div id="gameButtons">
-                <button id="playerRollButton">Roll</button>
-                <button id="gameMenuButton">Menu</button>
-            </div>
-        </section>
-        <noscript>
-            <h3>Your Browser Does Not Support JavaScript!</h3>
-        </noscript>
-    </main>
-</body>
-
+			<section id="gameWindow">
+				<div id="opponent">
+					<div>
+						<img id="opponentImg" src="assets/img/bosses/ooze.webp" alt="" />
+						<p>Roll: <span id="opponentRoll"></span></p>
+					</div>
+					<p>Name: <span id="opponentName"></span></p>
+					<p>Health: <span id="opponentHealth"></span></p>
+				</div>
+				<div id="diceArea"></div>
+				<div id="player">
+					<div>
+						<img id="playerImg" src="" alt="" />
+						<p>Roll: <span id="playerRoll"></span></p>
+					</div>
+					<p>Name: <span id="playerName"></span></p>
+					<p>Health: <span id="playerHealth"></span></p>
+				</div>
+				<div id="gameButtons">
+					<button id="playerRollButton">Roll</button>
+					<button id="gameMenuButton">Menu</button>
+				</div>
+			</section>
+			<noscript>
+				<h3>Your Browser Does Not Support JavaScript!</h3>
+			</noscript>
+		</main>
+	</body>
 </html>
