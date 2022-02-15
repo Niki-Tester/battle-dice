@@ -295,8 +295,6 @@ function createDice(diceId) {
 	}
 
 	dice.id = `${diceId}Dice`;
-	// dice.style.transform = `scaleX(0.1) scaleY(0.1) scaleZ(0.1)`;
-
 	diceArea.append(dice);
 	rollDice(dice);
 }
