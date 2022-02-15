@@ -383,17 +383,23 @@ noscript h3 {
 /* #region Dice */
 
 #gameWindow #diceArea {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	position: relative;
 	height: 200px;
 	width: 200px;
 	position: relative;
-	background-color: brown;
+	/* background-color: brown; */
 }
 
 #gameWindow #playerDice {
 	position: absolute;
+	left: 64px;
+	top: 64px;
 	transform-style: preserve-3d;
-	transition: all 5s ease-in-out;
+	transition: all 1s ease-out;
+	transform-origin: 32px 32px;
 }
 
 #gameWindow .dice-face {
