@@ -1,35 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			href="https://niki-tester.github.io/battle-dice/favicon.png"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://niki-tester.github.io/battle-dice/assets/css/style.css"
+		/>
+		<title>Battle Dice | Page Not Found</title>
+	</head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="https://niki-tester.github.io/battle-dice/favicon.png" />
-    <link rel="stylesheet" href="https://niki-tester.github.io/battle-dice/assets/css/style.css" />
-    <title>Battle Dice | Page Not Found</title>
-</head>
-
-<body>
-    <section id="notfound">
-        <img src="https://niki-tester.github.io/battle-dice/assets/img/dicelogo.png" alt="Battle Dice Logo">
-        <h1>Page Not Found!</h1>
-        <p>If you would like to goto the home page, use the button below.</p>
-        <a href="/battle-dice/" class="btn">Home</a>
-        <p>If the page still fails to load, you can try clearing local storage.</p>
-        <p>This will mean all game progress will be lost.</p>
-        <button id="resetButton">Clear Storage</button>
-    </section>
-    <script>
-        const resetButton = document.getElementById('resetButton');
-        resetButton.addEventListener('click', e => {
-            const message =
-                'Are you sure you want to clear your local storage, you will lose all game progress.'
-            if (confirm(message)) {
-                localStorage.clear();
-            }
-        });
-    </script>
-</body>
-
+	<body>
+		<section id="notfound">
+			<img
+				src="https://niki-tester.github.io/battle-dice/assets/img/dicelogo.webp"
+				alt="Battle Dice Logo"
+			/>
+			<h1>Page Not Found!</h1>
+			<p>If you would like to goto the home page, use the button below.</p>
+			<a href="/battle-dice">Home Page</a>
+			<p>If the page still fails to load, you can try clearing local storage.</p>
+			<p>This will mean all game progress will be lost.</p>
+			<button id="resetButton">Clear Storage</button>
+		</section>
+		<script>
+			const resetButton = document.getElementById('resetButton');
+			resetButton.addEventListener('click', e => {
+				const message =
+					'Are you sure you want to clear your local storage, you will lose all game progress.';
+				if (confirm(message)) {
+					localStorage.clear();
+				}
+			});
+		</script>
+	</body>
 </html>
