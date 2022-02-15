@@ -277,8 +277,9 @@ function setBossElements(data) {
 }
 
 function startRound() {
-	const playerRollButton = document.getElementById('playerRollButton');
-	playerRollButton.disabled = true;
+	document.getElementById('playerRollButton').disabled = true;
+	playerRollButton;
+	createDice('player');
 }
 
 function createDice(diceId) {
@@ -294,7 +295,57 @@ function createDice(diceId) {
 	}
 
 	dice.id = `${diceId}Dice`;
+	// dice.style.transform = `scaleX(0.1) scaleY(0.1) scaleZ(0.1)`;
+
 	diceArea.append(dice);
+	rollDice(dice);
+}
+
+function rollDice(dice) {
+	const diceScale = 2;
+	const diceRoll = Math.floor(Math.random() * 6) + 1;
+	setTimeout(() => {
+		dice.style.transform = `
+		rotateX(${Math.floor(Math.random() * 360 * 3)}deg) 
+		rotateY(${Math.floor(Math.random() * 360 * 3)}deg) 
+		rotateZ(${Math.floor(Math.random() * 360 * 3)}deg) 
+		scaleX(${diceScale})
+		scaleY(${diceScale})
+		scaleZ(${diceScale})
+		`;
+	}, 500);
+	setTimeout(() => {
+		console.log(diceRoll);
+		switch (diceRoll) {
+			case 1:
+				dice.style.transform = `rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
+				break;
+			case 2:
+				dice.style.transform = `rotateX(180deg) rotateY(270deg) rotateZ(0deg)`;
+				break;
+			case 3:
+				dice.style.transform = `rotateX(90deg) rotateY(0deg) rotateZ(0deg)`;
+				break;
+			case 4:
+				dice.style.transform = `rotateX(270deg) rotateY(0deg) rotateZ(0deg)`;
+				break;
+			case 5:
+				dice.style.transform = `rotateX(0deg) rotateY(270deg) rotateZ(0deg)`;
+				break;
+			case 6:
+				dice.style.transform = `rotateX(180deg) rotateY(0deg) rotateZ(0deg)`;
+				break;
+
+			default:
+				break;
+		}
+		dice.style.transform += ` scaleX(1) scaleY(1) scaleZ(1)`;
+	}, 1000);
+
+	setTimeout(() => {
+		dice.remove();
+		document.getElementById('playerRollButton').disabled = false;
+	}, 5000);
 }
 
 window.addEventListener('storage', e => {
