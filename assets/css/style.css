@@ -361,6 +361,13 @@ noscript h3 {
 	height: 100px;
 }
 
+#gameWindow #playerRoll img {
+	position: absolute;
+	top: -2.5px;
+	left: 40px;
+	height: 25px;
+}
+
 #gameWindow #opponent > div > p,
 #gameWindow #player > div > p {
 	position: absolute;

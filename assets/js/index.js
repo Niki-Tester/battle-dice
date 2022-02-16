@@ -300,6 +300,8 @@ function createDice(diceId) {
 }
 
 function rollDice(dice) {
+	const playerRollElement = document.getElementById('playerRoll');
+	playerRollElement.innerHTML = '';
 	const diceScale = 2;
 	const diceRoll = Math.floor(Math.random() * 6) + 1;
 	setTimeout(() => {
@@ -342,6 +344,9 @@ function rollDice(dice) {
 
 	setTimeout(() => {
 		dice.remove();
+		const rollImage = new Image();
+		rollImage.src = `assets/img/dice/${diceRoll}_dots_small.webp`;
+		playerRollElement.append(rollImage);
 		document.getElementById('playerRollButton').disabled = false;
 	}, 5000);
 }
