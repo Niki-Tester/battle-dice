@@ -12,6 +12,10 @@ window.addEventListener('DOMContentLoaded', () => {
 	const form = document.getElementsByTagName('form')[0];
 	form.addEventListener('submit', e => {
 		e.preventDefault();
+		messageHandler(
+			'Please use the "Start" button to submit your name & selection',
+			'warn'
+		);
 	});
 });
 
