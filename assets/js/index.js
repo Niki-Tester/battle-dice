@@ -134,6 +134,7 @@ const getPlayerImages = () => {
 };
 
 const addCharEventListeners = () => {
+	console.log('called');
 	const characters = document.querySelectorAll('.character');
 
 	characters.forEach(character => {
@@ -141,11 +142,10 @@ const addCharEventListeners = () => {
 	});
 };
 
-const characterSelection = () => {
+const characterSelection = e => {
 	const characters = document.querySelectorAll('.character');
-
-	if (this.classList.contains('selected')) {
-		this.classList.remove('selected');
+	if (e.target.classList.contains('selected')) {
+		e.target.classList.remove('selected');
 		return;
 	}
 
@@ -153,7 +153,7 @@ const characterSelection = () => {
 		character.classList.remove('selected');
 	});
 
-	this.classList.add('selected');
+	e.target.classList.add('selected');
 };
 
 const createImgElement = image => {
