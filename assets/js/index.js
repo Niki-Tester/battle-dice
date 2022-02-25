@@ -234,21 +234,19 @@ const startGame = (e, username, character, sections) => {
 };
 
 const savePlayerData = player => {
-	localStorage.setItem('name', player.name);
-	localStorage.setItem('charIMG', player.charIMG);
-	localStorage.setItem('level', player.level);
-	localStorage.setItem('hp', player.hp);
-	localStorage.setItem('dmgMultiplier', player.dmgMultiplier);
+	localStorage.setItem('player', JSON.stringify(player));
 };
 
 const loadPlayerData = () => {
-	if (localStorage.length != 0) {
-		const name = localStorage.getItem('name');
-		const charIMG = localStorage.getItem('charIMG');
-		const hp = localStorage.getItem('hp');
-		const level = localStorage.getItem('level');
-		const dmgMultiplier = localStorage.getItem('dmgMultiplier');
+	const keys = [];
+	for (const key in localStorage) {
+		keys.push(key);
+	}
 
+	if (keys.includes('player')) {
+		const { name, charIMG, hp, level, dmgMultiplier } = JSON.parse(
+			localStorage.getItem('player')
+		);
 		return new Character(name, charIMG, hp, level, dmgMultiplier);
 	} else return null;
 };
