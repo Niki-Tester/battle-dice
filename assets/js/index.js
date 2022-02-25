@@ -266,7 +266,7 @@ const loadOpponentData = () => {
 	}
 	const playerLevel = JSON.parse(localStorage.getItem('player')).level || 0;
 
-	if (playerLevel > opponentImages.length) {
+	if ((playerLevel = opponentImages.length)) {
 		const randomOpponent = Math.floor(Math.random() * opponentImages.length);
 		createOpponent(opponentImages[randomOpponent]);
 	} else {
@@ -399,6 +399,86 @@ const compareRolls = () => {
 	setPlayerElements();
 	saveOpponentData(opponent);
 	setOpponentElements();
+	checkGameEnd(player, opponent);
+};
+
+const checkGameEnd = (player, opponent) => {
+	if (player.hp <= 0) {
+		console.log('YOU LOSE- GAME OVER');
+		localStorage.removeItem('player');
+		localStorage.removeItem('opponent');
+		endScreen();
+	}
+	if (opponent.hp <= 0) {
+		console.log('YOU WIN - NEXT ROUND');
+		localStorage.removeItem('opponent');
+		console.log(`LEVEL: ${player.level}`);
+		player.level++;
+		player.hp = 10;
+		console.log(`LEVEL: ${player.level}`);
+		localStorage.setItem('player', JSON.stringify(player));
+		nextRound();
+	}
+};
+
+const endScreen = () => {
+	const resultScreen = document.getElementById('resultScreen');
+	resultScreen.style.display = 'flex';
+	const div = document.createElement('div');
+	const h2 = document.createElement('h2');
+	const menuButton = document.createElement('button');
+	menuButton.id = gameMenuButton;
+	menuButton.innerHTML = 'Menu';
+	h2.textContent = 'You Lose!';
+	div.append(h2);
+	resultScreen.append(div);
+	resultScreen.append(menuButton);
+	menuButton.addEventListener('click', e => {
+		document.getElementById('mainMenu').style.removeProperty('display');
+		document.getElementById('resultScreen').style.removeProperty('display');
+		document.getElementById('gameWindow').style.display = 'none';
+		resultScreen.innerHTML = '';
+	});
+	clearGameElements();
+};
+
+const nextRound = () => {
+	const resultScreen = document.getElementById('resultScreen');
+	resultScreen.style.display = 'flex';
+
+	const div = document.createElement('div');
+	const h2 = document.createElement('h2');
+	const menuButton = document.createElement('button');
+	const nextRoundButton = document.createElement('button');
+
+	h2.textContent = 'You Win!';
+
+	menuButton.id = gameMenuButton;
+	menuButton.innerHTML = 'Menu';
+
+	nextRoundButton.innerHTML = 'Next Round';
+
+	div.append(h2);
+	resultScreen.append(div);
+	resultScreen.append(menuButton);
+	resultScreen.append(nextRoundButton);
+
+	menuButton.addEventListener('click', e => {
+		document.getElementById('mainMenu').style.removeProperty('display');
+		document.getElementById('resultScreen').style.removeProperty('display');
+		document.getElementById('gameWindow').style.display = 'none';
+		resultScreen.innerHTML = '';
+	});
+
+	nextRoundButton.addEventListener('click', () => {
+		loadOpponentData();
+		loadPlayerData();
+		setTimeout(() => {
+			resultScreen.style.removeProperty('display');
+			resultScreen.innerHTML = '';
+		}, 200);
+	});
+	clearGameElements();
 };
 
 const clearGameElements = () => {
