@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	form.addEventListener('submit', e => {
 		e.preventDefault();
 		messageHandler(
-			'Please use the "Start" button to submit your name & selection',
+			'Please use the "Start" button to submit your name & selection.',
 			'warn'
 		);
 	});
