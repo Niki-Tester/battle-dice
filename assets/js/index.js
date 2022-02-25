@@ -273,7 +273,7 @@ const createOpponent = opponent => {
 	const charIMG = `assets/img/bosses/${opponent.fileName}`;
 	const boss = new Character(name, charIMG);
 	localStorage.setItem('opponent', JSON.stringify(boss));
-	setBossElements(boss);
+	setBossElements();
 };
 
 const setBossElements = () => {
