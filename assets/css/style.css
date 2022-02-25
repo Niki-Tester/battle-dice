@@ -45,7 +45,7 @@ button {
 	box-shadow: 2px 2px 10px #000;
 	border-radius: 5px;
 	cursor: pointer;
-	width: 70%;
+	max-width: 70%;
 }
 
 button:disabled {
@@ -442,6 +442,25 @@ noscript h3 {
 .dice-face-6 {
 	background-image: url('../img/dice/3_dots.webp');
 	transform: rotateX(-90deg) translateZ(31px);
+}
+
+#gameWindow #resultScreen {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #660000;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+}
+
+#gameWindow #resultScreen h2 {
+	margin-bottom: 1rem;
+}
+
+#gameWindow #resultScreen button {
+	margin-bottom: 1rem;
 }
 /* #endregion */
 /* #endregion */
