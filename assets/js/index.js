@@ -237,10 +237,6 @@ const savePlayerData = player => {
 	localStorage.setItem('player', JSON.stringify(player));
 };
 
-const saveOpponentData = opponent => {
-	localStorage.setItem('opponent', JSON.stringify(opponent));
-};
-
 const loadPlayerData = () => {
 	const keys = [];
 	for (const key in localStorage) {
@@ -253,6 +249,10 @@ const loadPlayerData = () => {
 		);
 		return new Character(name, charIMG, hp, level, dmgMultiplier);
 	} else return null;
+};
+
+const saveOpponentData = opponent => {
+	localStorage.setItem('opponent', JSON.stringify(opponent));
 };
 
 const loadOpponentData = () => {
