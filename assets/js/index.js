@@ -276,11 +276,12 @@ const createOpponent = opponent => {
 	setBossElements(boss);
 };
 
-const setBossElements = data => {
-	document.getElementById('opponentName').textContent = data.name;
-	document.getElementById('opponentRoll').textContent = data.roll;
-	document.getElementById('opponentHealth').textContent = data.hp;
-	document.getElementById('opponentImg').src = data.charIMG;
+const setBossElements = () => {
+	const { name, roll, hp, charIMG } = JSON.parse(localStorage.getItem('opponent'));
+	document.getElementById('opponentName').textContent = name;
+	document.getElementById('opponentRoll').textContent = roll;
+	document.getElementById('opponentHealth').textContent = hp;
+	document.getElementById('opponentImg').src = charIMG;
 };
 
 const startRound = () => {
