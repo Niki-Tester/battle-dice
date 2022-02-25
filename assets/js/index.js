@@ -276,8 +276,10 @@ function setBossElements(data) {
 	document.getElementById('opponentImg').src = data.charIMG;
 }
 
-function startRound() {
+async function startRound() {
 	document.getElementById('playerRollButton').disabled = true;
+	document.getElementById('playerRoll').innerHTML = '';
+	document.getElementById('opponentRoll').innerHTML = '';
 	playerRollButton;
 	createDice('player');
 }
@@ -301,21 +303,21 @@ function createDice(diceId) {
 
 function rollDice(dice) {
 	const playerRollElement = document.getElementById('playerRoll');
-	playerRollElement.innerHTML = '';
+	const opponentRollElement = document.getElementById('opponentRoll');
 	const diceScale = 2;
+	const rollModifier = 8;
 	const diceRoll = Math.floor(Math.random() * 6) + 1;
 	setTimeout(() => {
 		dice.style.transform = `
-		rotateX(${Math.floor(Math.random() * 360 * 3)}deg) 
-		rotateY(${Math.floor(Math.random() * 360 * 3)}deg) 
-		rotateZ(${Math.floor(Math.random() * 360 * 3)}deg) 
+		rotateX(${Math.floor(Math.random() * 360) * rollModifier}deg) 
+		rotateY(${Math.floor(Math.random() * 360) * rollModifier}deg) 
+		rotateZ(${Math.floor(Math.random() * 360) * rollModifier}deg) 
 		scaleX(${diceScale})
 		scaleY(${diceScale})
 		scaleZ(${diceScale})
 		`;
 	}, 500);
 	setTimeout(() => {
-		console.log(diceRoll);
 		switch (diceRoll) {
 			case 1:
 				dice.style.transform = `rotateX(0deg) rotateY(0deg) rotateZ(0deg)`;
@@ -335,20 +337,46 @@ function rollDice(dice) {
 			case 6:
 				dice.style.transform = `rotateX(180deg) rotateY(0deg) rotateZ(0deg)`;
 				break;
-
-			default:
-				break;
 		}
 		dice.style.transform += ` scaleX(1) scaleY(1) scaleZ(1)`;
 	}, 1000);
 
 	setTimeout(() => {
-		dice.remove();
-		const rollImage = new Image();
-		rollImage.src = `assets/img/dice/${diceRoll}_dots_small.webp`;
-		playerRollElement.append(rollImage);
-		document.getElementById('playerRollButton').disabled = false;
-	}, 5000);
+		if (dice.id === 'playerDice') {
+			localStorage.setItem('roll', diceRoll);
+			const playerRollImage = new Image();
+			playerRollImage.src = `assets/img/dice/${diceRoll}_dots_small.webp`;
+			playerRollElement.append(playerRollImage);
+			dice.remove();
+			createDice('opponent');
+		}
+
+		if (dice.id === 'opponentDice') {
+			const opponentRollImage = new Image();
+			opponentRollImage.src = `assets/img/dice/${diceRoll}_dots_small.webp`;
+			opponentRollElement.append(opponentRollImage);
+			dice.remove();
+			document.getElementById('playerRollButton').disabled = false;
+			showResult(diceRoll);
+		}
+	}, 4000);
+}
+
+function showResult(opponentRoll) {
+	const playerRoll = Number(localStorage.getItem('roll'));
+	if (playerRoll > opponentRoll) {
+		console.log({ PlayerRolled: playerRoll });
+		console.log({ PlayerRolled: opponentRoll });
+		console.log('Player Wins');
+	} else if (playerRoll < opponentRoll) {
+		console.log({ PlayerRolled: playerRoll });
+		console.log({ PlayerRolled: opponentRoll });
+		console.log('Opponent Wins');
+	} else {
+		console.log({ PlayerRolled: playerRoll });
+		console.log({ PlayerRolled: opponentRoll });
+		console.log("It's a Tie!");
+	}
 }
 
 window.addEventListener('storage', e => {
