@@ -10,26 +10,26 @@ window.addEventListener('DOMContentLoaded', () => {
 	addMessageCloseListener();
 });
 
-function hideSections() {
+const hideSections = () => {
 	const sections = [...document.querySelectorAll('section')];
 
 	sections.forEach(section => {
 		if (section.id === 'messageBox' || section.id === 'mainMenu') return;
 		section.style.display = 'none';
 	});
-}
+};
 
-function addButtonListeners() {
+const addButtonListeners = () => {
 	const buttons = [...document.querySelectorAll('button')];
 	buttons.forEach(button => button.addEventListener('click', buttonHandler));
-}
+};
 
-function addMessageCloseListener() {
+const addMessageCloseListener = () => {
 	const messageClose = document.getElementById('messageClose');
 	messageClose.addEventListener('click', closeMessage);
-}
+};
 
-function buttonHandler(e) {
+const buttonHandler = e => {
 	const sections = [...document.querySelectorAll('section')];
 
 	if (e.currentTarget.classList.contains('menuButton')) {
@@ -70,9 +70,9 @@ function buttonHandler(e) {
 		default:
 			messageHandler(`${e.currentTarget.id} button not handled`, 'error');
 	}
-}
+};
 
-function messageHandler(message, type) {
+const messageHandler = (message, type) => {
 	window.clearTimeout(g_MessageTimeOut);
 	messageBox.classList.add(type);
 	messageBox.style.transform = 'translateY(0px)';
@@ -80,32 +80,32 @@ function messageHandler(message, type) {
 	g_MessageTimeOut = setTimeout(() => {
 		clearStyles(type);
 	}, 7000);
-}
+};
 
-function closeMessage() {
+const closeMessage = () => {
 	window.clearTimeout(g_MessageTimeOut);
 	const type = messageBox.classList[0];
 	clearStyles(type);
-}
+};
 
-function clearStyles(type) {
+const clearStyles = type => {
 	messageBox.style.removeProperty('transform');
 	setTimeout(() => {
 		messageBox.classList.remove(type);
 		messageBox.firstElementChild.textContent = '';
 	}, 500);
-}
+};
 
-function windowHandler(e, sectionID, sections) {
+const windowHandler = (e, sectionID, sections) => {
 	if (e.target.id === 'gameMenuButton') {
 		e.currentTarget.parentElement.parentElement.style.display = 'none';
 	} else {
 		e.currentTarget.parentElement.style.display = 'none';
 	}
 	sections.filter(section => section.id === sectionID)[0].style.display = 'flex';
-}
+};
 
-function clearStorage() {
+const clearStorage = () => {
 	const message =
 		'Are you sure you want to clear your local storage, you will lose all game progress.';
 	if (confirm(message)) {
@@ -114,16 +114,16 @@ function clearStorage() {
 	} else {
 		messageHandler('Game data not cleared.', 'warn');
 	}
-}
+};
 
-function checkUserData(e, sections) {
+const checkUserData = (e, sections) => {
 	if (localStorage.length === 0) {
 		getPlayerImages();
 		windowHandler(e, 'userData', sections);
 	} else startGame(e, null, null, sections);
-}
+};
 
-function getPlayerImages() {
+const getPlayerImages = () => {
 	const charSelection = document.getElementById('characterSelection');
 	charSelection.innerHTML = '';
 
@@ -131,17 +131,17 @@ function getPlayerImages() {
 		createImgElement(playerImages[i]);
 	}
 	addCharEventListeners();
-}
+};
 
-function addCharEventListeners() {
+const addCharEventListeners = () => {
 	const characters = document.querySelectorAll('.character');
 
 	characters.forEach(character => {
 		character.addEventListener('click', characterSelection);
 	});
-}
+};
 
-function characterSelection() {
+const characterSelection = () => {
 	const characters = document.querySelectorAll('.character');
 
 	if (this.classList.contains('selected')) {
@@ -154,9 +154,9 @@ function characterSelection() {
 	});
 
 	this.classList.add('selected');
-}
+};
 
-function createImgElement(image) {
+const createImgElement = image => {
 	const charSelection = document.getElementById('characterSelection');
 	const imageElem = document.createElement('img');
 	const src = `assets/img/players/${image.fileName}`;
@@ -165,9 +165,9 @@ function createImgElement(image) {
 	imageElem.classList.add('character');
 	imageElem.id = image.fileName.replace('.webp', '');
 	charSelection.append(imageElem);
-}
+};
 
-function validateInput(e, sections) {
+const validateInput = (e, sections) => {
 	const formInput = document.getElementById('username');
 	const characters = [...document.querySelectorAll('.character')];
 	const selectedCharacter = characters.filter(char =>
@@ -207,9 +207,9 @@ function validateInput(e, sections) {
 
 	startGame(e, username, selectedCharacter.id, sections);
 	formInput.value = '';
-}
+};
 
-function startGame(e, username, character, sections) {
+const startGame = (e, username, character, sections) => {
 	let playerData = loadPlayerData();
 	if (!playerData) {
 		const charIMG = `assets/img/players/${character}.webp`;
@@ -222,17 +222,17 @@ function startGame(e, username, character, sections) {
 	setPlayerElements(playerData);
 
 	windowHandler(e, 'gameWindow', sections);
-}
+};
 
-function savePlayerData(player) {
+const savePlayerData = player => {
 	localStorage.setItem('name', player.name);
 	localStorage.setItem('charIMG', player.charIMG);
 	localStorage.setItem('level', player.level);
 	localStorage.setItem('hp', player.hp);
 	localStorage.setItem('dmgMultiplier', player.dmgMultiplier);
-}
+};
 
-function loadPlayerData() {
+const loadPlayerData = () => {
 	if (localStorage.length != 0) {
 		const name = localStorage.getItem('name');
 		const charIMG = localStorage.getItem('charIMG');
@@ -242,9 +242,9 @@ function loadPlayerData() {
 
 		return new Character(name, charIMG, hp, level, dmgMultiplier);
 	} else return null;
-}
+};
 
-function loadOpponentData() {
+const loadOpponentData = () => {
 	const playerLevel = localStorage.getItem('level') || 0;
 
 	if (playerLevel > opponentImages.length) {
@@ -253,38 +253,38 @@ function loadOpponentData() {
 	} else {
 		createOpponent(opponentImages[playerLevel]);
 	}
-}
+};
 
-function setPlayerElements(data) {
+const setPlayerElements = data => {
 	document.getElementById('playerName').textContent = data.name;
 	document.getElementById('playerRoll').textContent = data.roll;
 	document.getElementById('playerHealth').textContent = data.hp;
 	document.getElementById('playerImg').src = data.charIMG;
-}
+};
 
-function createOpponent(opponent) {
+const createOpponent = opponent => {
 	const oppName = opponent.name;
 	const charIMG = `assets/img/bosses/${opponent.fileName}`;
 	const boss = new Character(oppName, charIMG);
 	setBossElements(boss);
-}
+};
 
-function setBossElements(data) {
+const setBossElements = data => {
 	document.getElementById('opponentName').textContent = data.name;
 	document.getElementById('opponentRoll').textContent = data.roll;
 	document.getElementById('opponentHealth').textContent = data.hp;
 	document.getElementById('opponentImg').src = data.charIMG;
-}
+};
 
-async function startRound() {
+const startRound = () => {
 	document.getElementById('playerRollButton').disabled = true;
 	document.getElementById('playerRoll').innerHTML = '';
 	document.getElementById('opponentRoll').innerHTML = '';
 	playerRollButton;
 	createDice('player');
-}
+};
 
-function createDice(diceId) {
+const createDice = diceId => {
 	const diceArea = document.getElementById('diceArea');
 	const dice = document.createElement('div');
 
@@ -299,9 +299,9 @@ function createDice(diceId) {
 	dice.id = `${diceId}Dice`;
 	diceArea.append(dice);
 	rollDice(dice);
-}
+};
 
-function rollDice(dice) {
+const rollDice = dice => {
 	const playerRollElement = document.getElementById('playerRoll');
 	const opponentRollElement = document.getElementById('opponentRoll');
 	const diceScale = 2;
@@ -357,12 +357,12 @@ function rollDice(dice) {
 			opponentRollElement.append(opponentRollImage);
 			dice.remove();
 			document.getElementById('playerRollButton').disabled = false;
-			showResult(diceRoll);
+			compareRolls(diceRoll);
 		}
 	}, 4000);
-}
+};
 
-function showResult(opponentRoll) {
+const compareRolls = opponentRoll => {
 	const playerRoll = Number(localStorage.getItem('roll'));
 	if (playerRoll > opponentRoll) {
 		console.log({ PlayerRolled: playerRoll });
@@ -377,7 +377,7 @@ function showResult(opponentRoll) {
 		console.log({ PlayerRolled: opponentRoll });
 		console.log("It's a Tie!");
 	}
-}
+};
 
 window.addEventListener('storage', e => {
 	localStorage.setItem(e.key, e.oldValue);
