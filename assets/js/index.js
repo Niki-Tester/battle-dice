@@ -256,7 +256,7 @@ const saveOpponentData = opponent => {
 };
 
 const loadOpponentData = () => {
-	const playerLevel = localStorage.getItem('level') || 0;
+	const playerLevel = JSON.parse(localStorage.getItem('player')).level || 0;
 
 	if (playerLevel > opponentImages.length) {
 		const randomOpponent = Math.floor(Math.random() * opponentImages.length);
