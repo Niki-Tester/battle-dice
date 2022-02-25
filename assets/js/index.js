@@ -227,7 +227,7 @@ const startGame = (e, username, character, sections) => {
 	}
 
 	loadOpponentData();
-	setPlayerElements(playerData);
+	setPlayerElements();
 
 	windowHandler(e, 'gameWindow', sections);
 };
@@ -261,11 +261,12 @@ const loadOpponentData = () => {
 	}
 };
 
-const setPlayerElements = data => {
-	document.getElementById('playerName').textContent = data.name;
-	document.getElementById('playerRoll').textContent = data.roll;
-	document.getElementById('playerHealth').textContent = data.hp;
-	document.getElementById('playerImg').src = data.charIMG;
+const setPlayerElements = () => {
+	const { name, roll, hp, charIMG } = JSON.parse(localStorage.getItem('player'));
+	document.getElementById('playerName').textContent = name;
+	document.getElementById('playerRoll').textContent = roll;
+	document.getElementById('playerHealth').textContent = hp;
+	document.getElementById('playerImg').src = charIMG;
 };
 
 const createOpponent = opponent => {
