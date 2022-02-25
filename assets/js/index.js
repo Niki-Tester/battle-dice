@@ -256,6 +256,14 @@ const saveOpponentData = opponent => {
 };
 
 const loadOpponentData = () => {
+	const keys = [];
+	for (const key in localStorage) {
+		keys.push(key);
+	}
+	if (keys.includes('opponent')) {
+		setOpponentElements();
+		return;
+	}
 	const playerLevel = JSON.parse(localStorage.getItem('player')).level || 0;
 
 	if (playerLevel > opponentImages.length) {
@@ -276,12 +284,12 @@ const setPlayerElements = () => {
 const createOpponent = opponent => {
 	const name = opponent.name;
 	const charIMG = `assets/img/bosses/${opponent.fileName}`;
-	const boss = new Character(name, charIMG);
-	localStorage.setItem('opponent', JSON.stringify(boss));
-	setBossElements();
+	const currentOpponent = new Character(name, charIMG);
+	localStorage.setItem('opponent', JSON.stringify(currentOpponent));
+	setOpponentElements();
 };
 
-const setBossElements = () => {
+const setOpponentElements = () => {
 	const { name, hp, charIMG } = JSON.parse(localStorage.getItem('opponent'));
 	document.getElementById('opponentName').textContent = name;
 	document.getElementById('opponentHealth').textContent = hp;
@@ -380,18 +388,17 @@ const rollDice = dice => {
 };
 
 const compareRolls = () => {
-	const playerRoll = JSON.parse(localStorage.getItem('player')).roll;
-	const opponentRoll = JSON.parse(localStorage.getItem('opponent')).roll;
-	if (playerRoll > opponentRoll) {
-		console.log({ PlayerRolled: playerRoll, OpponentRolled: opponentRoll });
-		console.log('Player Wins');
-	} else if (playerRoll < opponentRoll) {
-		console.log({ PlayerRolled: playerRoll, OpponentRolled: opponentRoll });
-		console.log('Opponent Wins');
-	} else {
-		console.log({ PlayerRolled: playerRoll, OpponentRolled: opponentRoll });
-		console.log("It's a Tie!");
-	}
+	const player = JSON.parse(localStorage.getItem('player'));
+	const opponent = JSON.parse(localStorage.getItem('opponent'));
+	const damage = Math.abs(player.roll - opponent.roll);
+
+	if (player.roll > opponent.roll) opponent.hp -= damage;
+	if (player.roll < opponent.roll) player.hp -= damage;
+
+	savePlayerData(player);
+	setPlayerElements();
+	saveOpponentData(opponent);
+	setOpponentElements();
 };
 
 window.addEventListener('storage', e => {
