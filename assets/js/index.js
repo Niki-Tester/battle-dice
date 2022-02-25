@@ -349,7 +349,9 @@ const rollDice = dice => {
 
 	setTimeout(() => {
 		if (dice.id === 'playerDice') {
-			localStorage.setItem('roll', diceRoll);
+			const player = JSON.parse(localStorage.getItem('player'));
+			player.roll = diceRoll;
+			savePlayerData(player);
 			const playerRollImage = new Image();
 			playerRollImage.src = `assets/img/dice/${diceRoll}_dots_small.webp`;
 			playerRollElement.append(playerRollImage);
@@ -369,7 +371,8 @@ const rollDice = dice => {
 };
 
 const compareRolls = opponentRoll => {
-	const playerRoll = Number(localStorage.getItem('roll'));
+	const player = JSON.parse(localStorage.getItem('player'));
+	const playerRoll = player.roll;
 	if (playerRoll > opponentRoll) {
 		console.log({ PlayerRolled: playerRoll });
 		console.log({ PlayerRolled: opponentRoll });
