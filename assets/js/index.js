@@ -386,5 +386,6 @@ const compareRolls = opponentRoll => {
 };
 
 window.addEventListener('storage', e => {
+	if (!e.key) return;
 	localStorage.setItem(e.key, e.oldValue);
 });
