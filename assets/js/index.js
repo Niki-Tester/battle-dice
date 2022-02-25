@@ -65,6 +65,7 @@ const buttonHandler = e => {
 			break;
 
 		case 'gameMenuButton':
+			// TODO: clear dice rolls for player/opponent
 			windowHandler(e, 'mainMenu', sections);
 			break;
 
@@ -236,6 +237,10 @@ const savePlayerData = player => {
 	localStorage.setItem('player', JSON.stringify(player));
 };
 
+const saveOpponentData = opponent => {
+	localStorage.setItem('opponent', JSON.stringify(opponent));
+};
+
 const loadPlayerData = () => {
 	const keys = [];
 	for (const key in localStorage) {
@@ -361,30 +366,30 @@ const rollDice = dice => {
 		}
 
 		if (dice.id === 'opponentDice') {
+			const opponent = JSON.parse(localStorage.getItem('opponent'));
+			opponent.roll = diceRoll;
+			saveOpponentData(opponent);
 			const opponentRollImage = new Image();
 			opponentRollImage.src = `assets/img/dice/${diceRoll}_dots_small.webp`;
 			opponentRollElement.append(opponentRollImage);
 			dice.remove();
 			document.getElementById('playerRollButton').disabled = false;
-			compareRolls(diceRoll);
+			compareRolls();
 		}
 	}, 4000);
 };
 
-const compareRolls = opponentRoll => {
-	const player = JSON.parse(localStorage.getItem('player'));
-	const playerRoll = player.roll;
+const compareRolls = () => {
+	const playerRoll = JSON.parse(localStorage.getItem('player')).roll;
+	const opponentRoll = JSON.parse(localStorage.getItem('opponent')).roll;
 	if (playerRoll > opponentRoll) {
-		console.log({ PlayerRolled: playerRoll });
-		console.log({ PlayerRolled: opponentRoll });
+		console.log({ PlayerRolled: playerRoll, OpponentRolled: opponentRoll });
 		console.log('Player Wins');
 	} else if (playerRoll < opponentRoll) {
-		console.log({ PlayerRolled: playerRoll });
-		console.log({ PlayerRolled: opponentRoll });
+		console.log({ PlayerRolled: playerRoll, OpponentRolled: opponentRoll });
 		console.log('Opponent Wins');
 	} else {
-		console.log({ PlayerRolled: playerRoll });
-		console.log({ PlayerRolled: opponentRoll });
+		console.log({ PlayerRolled: playerRoll, OpponentRolled: opponentRoll });
 		console.log("It's a Tie!");
 	}
 };
