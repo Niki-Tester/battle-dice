@@ -269,9 +269,10 @@ const setPlayerElements = data => {
 };
 
 const createOpponent = opponent => {
-	const oppName = opponent.name;
+	const name = opponent.name;
 	const charIMG = `assets/img/bosses/${opponent.fileName}`;
-	const boss = new Character(oppName, charIMG);
+	const boss = new Character(name, charIMG);
+	localStorage.setItem('opponent', JSON.stringify(boss));
 	setBossElements(boss);
 };
 
