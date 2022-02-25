@@ -8,6 +8,11 @@ window.addEventListener('DOMContentLoaded', () => {
 	addButtonListeners();
 	hideSections();
 	addMessageCloseListener();
+
+	const form = document.getElementsByTagName('form')[0];
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+	});
 });
 
 const hideSections = () => {
