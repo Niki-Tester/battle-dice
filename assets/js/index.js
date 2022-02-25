@@ -65,8 +65,8 @@ const buttonHandler = e => {
 			break;
 
 		case 'gameMenuButton':
-			// TODO: clear dice rolls for player/opponent
 			windowHandler(e, 'mainMenu', sections);
+			clearGameElements();
 			break;
 
 		case 'resetButton':
@@ -399,6 +399,11 @@ const compareRolls = () => {
 	setPlayerElements();
 	saveOpponentData(opponent);
 	setOpponentElements();
+};
+
+const clearGameElements = () => {
+	document.getElementById('opponentRoll').innerHTML = '';
+	document.getElementById('playerRoll').innerHTML = '';
 };
 
 window.addEventListener('storage', e => {
