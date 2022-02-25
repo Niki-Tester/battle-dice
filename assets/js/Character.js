@@ -7,18 +7,6 @@ class Character {
         this.dmgMultiplier = dmgMultiplier;
         this.roll = roll;
     }
-
-    levelUp = () => {
-        this.level++;
-    }
-
-    takeDamage = damage => {
-        this.hp -= damage;
-    }
-
-    setDmgBonus = mod => {
-        this.dmgBonus = mod;
-    }
 }
 
 export default Character;
