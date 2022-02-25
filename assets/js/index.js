@@ -143,7 +143,6 @@ const getPlayerImages = () => {
 };
 
 const addCharEventListeners = () => {
-	console.log('called');
 	const characters = document.querySelectorAll('.character');
 
 	characters.forEach(character => {
