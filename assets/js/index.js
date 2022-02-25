@@ -266,7 +266,7 @@ const loadOpponentData = () => {
 	}
 	const playerLevel = JSON.parse(localStorage.getItem('player')).level || 0;
 
-	if ((playerLevel = opponentImages.length)) {
+	if (playerLevel >= opponentImages.length) {
 		const randomOpponent = Math.floor(Math.random() * opponentImages.length);
 		createOpponent(opponentImages[randomOpponent]);
 	} else {
@@ -456,7 +456,11 @@ const nextRound = () => {
 	menuButton.id = gameMenuButton;
 	menuButton.innerHTML = 'Menu';
 
-	nextRoundButton.innerHTML = 'Next Round';
+	if (JSON.parse(localStorage.getItem('player')).level >= 4) {
+		nextRoundButton.innerHTML = 'Endless Mode';
+	} else {
+		nextRoundButton.innerHTML = 'Next Round';
+	}
 
 	div.append(h2);
 	resultScreen.append(div);
