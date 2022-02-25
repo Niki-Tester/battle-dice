@@ -262,9 +262,8 @@ const loadOpponentData = () => {
 };
 
 const setPlayerElements = () => {
-	const { name, roll, hp, charIMG } = JSON.parse(localStorage.getItem('player'));
+	const { name, hp, charIMG } = JSON.parse(localStorage.getItem('player'));
 	document.getElementById('playerName').textContent = name;
-	document.getElementById('playerRoll').textContent = roll;
 	document.getElementById('playerHealth').textContent = hp;
 	document.getElementById('playerImg').src = charIMG;
 };
@@ -278,9 +277,8 @@ const createOpponent = opponent => {
 };
 
 const setBossElements = () => {
-	const { name, roll, hp, charIMG } = JSON.parse(localStorage.getItem('opponent'));
+	const { name, hp, charIMG } = JSON.parse(localStorage.getItem('opponent'));
 	document.getElementById('opponentName').textContent = name;
-	document.getElementById('opponentRoll').textContent = roll;
 	document.getElementById('opponentHealth').textContent = hp;
 	document.getElementById('opponentImg').src = charIMG;
 };
