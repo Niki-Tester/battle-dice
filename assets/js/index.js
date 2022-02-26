@@ -4,10 +4,13 @@ import Character from '../js/Character.js';
 
 let g_MessageTimeOut;
 
+const music = new Audio('assets/audio/menuTheme.mp3');
+
 window.addEventListener('DOMContentLoaded', () => {
 	addButtonListeners();
 	hideSections();
 	addMessageCloseListener();
+	settingsController();
 
 	const form = document.getElementsByTagName('form')[0];
 	form.addEventListener('submit', e => {
@@ -74,7 +77,10 @@ const buttonHandler = e => {
 			break;
 
 		case 'playerRollButton':
-			startRound();
+			break;
+
+		case 'soundControl':
+			musicToggle();
 			break;
 
 		default:
@@ -238,12 +244,7 @@ const savePlayerData = player => {
 };
 
 const loadPlayerData = () => {
-	const keys = [];
-	for (const key in localStorage) {
-		keys.push(key);
-	}
-
-	if (keys.includes('player')) {
+	if (!localStorageKeys().includes('player')) {
 		const { name, charIMG, hp, level, dmgMultiplier } = JSON.parse(
 			localStorage.getItem('player')
 		);
@@ -256,11 +257,7 @@ const saveOpponentData = opponent => {
 };
 
 const loadOpponentData = () => {
-	const keys = [];
-	for (const key in localStorage) {
-		keys.push(key);
-	}
-	if (keys.includes('opponent')) {
+	if (!localStorageKeys().includes('opponent')) {
 		setOpponentElements();
 		return;
 	}
@@ -490,7 +487,91 @@ const clearGameElements = () => {
 	document.getElementById('playerRoll').innerHTML = '';
 };
 
+const musicToggle = () => {
+	if (music.paused) {
+		music.play();
+	} else {
+		music.pause();
+	}
+};
+
+const settingsController = () => {
+	const musicSlider = document.getElementById('musicSlider');
+	const sfxSlider = document.getElementById('sfxSlider');
+
+	if (!localStorageKeys().includes('settings')) {
+		const settings = {
+			musicToggle: true,
+			musicVolume: 20,
+			sxfToggle: true,
+			sfxVolume: 50,
+		};
+
+		localStorage.setItem('settings', JSON.stringify(settings));
+	}
+
+	musicSlider.addEventListener('input', e => {
+		const settings = JSON.parse(localStorage.getItem('settings'));
+		settings.musicVolume = Number(e.target.value);
+		saveSettings(settings);
+		updateSettingsUI();
+		setMusicVolume();
+	});
+
+	sfxSlider.addEventListener('input', e => {
+		const settings = JSON.parse(localStorage.getItem('settings'));
+		settings.sfxVolume = Number(e.target.value);
+		saveSettings(settings);
+		updateSettingsUI();
+	});
+
+	updateSettingsUI();
+	setMusicVolume();
+};
+
+const saveSettings = settings => {
+	localStorage.setItem('settings', JSON.stringify(settings));
+};
+
+const updateSettingsUI = () => {
+	const musicSliderLabel = document.getElementById('musicSliderLabel');
+	const musicSlider = document.getElementById('musicSlider');
+
+	const sfxSliderLabel = document.getElementById('sfxSliderLabel');
+	const sfxSlider = document.getElementById('sfxSlider');
+
+	const { musicVolume, sfxVolume } = JSON.parse(localStorage.getItem('settings'));
+
+	musicSlider.value = musicVolume;
+	sfxSlider.value = sfxVolume;
+
+	musicSliderLabel.firstElementChild.innerHTML = `${musicVolume} &percnt;`;
+	sfxSliderLabel.firstElementChild.innerHTML = `${sfxVolume} &percnt;`;
+};
+
+const localStorageKeys = () => {
+	const keys = [];
+	for (const key in localStorage) {
+		keys.push(key);
+	}
+	return keys;
+};
+
+const setMusicVolume = () => {
+	music.volume = JSON.parse(localStorage.getItem('settings')).musicVolume / 100;
+};
+
 window.addEventListener('storage', e => {
 	if (!e.key) return;
 	localStorage.setItem(e.key, e.oldValue);
 });
+
+music.addEventListener('ended', () => {
+	music.src = 'assets/audio/battleThemeA.mp3';
+	music.load();
+	setTimeout(() => {
+		music.play();
+	}, 3000);
+});
+
+// TODO: FIX PLAYER HEALTH NOT RESETTING ON START OF NEW ROUND
