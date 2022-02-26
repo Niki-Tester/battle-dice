@@ -48,6 +48,10 @@ button {
 	max-width: 70%;
 }
 
+button > i {
+	pointer-events: none;
+}
+
 button:disabled {
 	opacity: 0.5;
 }
