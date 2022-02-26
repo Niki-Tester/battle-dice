@@ -125,7 +125,9 @@ const clearStorage = () => {
 	const message =
 		'Are you sure you want to clear your local storage, you will lose all game progress.';
 	if (confirm(message)) {
+		const settings = JSON.parse(localStorage.getItem('settings'));
 		localStorage.clear();
+		localStorage.setItem('settings', JSON.stringify(settings))
 		messageHandler('Game data cleared.', 'success');
 	} else {
 		messageHandler('Game data not cleared.', 'warn');
