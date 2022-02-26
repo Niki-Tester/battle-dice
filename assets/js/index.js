@@ -48,6 +48,7 @@ const buttonHandler = e => {
 	if (e.currentTarget.classList.contains('menuButton')) {
 		e.currentTarget.parentElement.style.display = 'none';
 		sections.filter(section => section.id === 'mainMenu')[0].style.display = 'flex';
+		pauseMusic();
 		return;
 	}
 
