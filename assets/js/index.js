@@ -54,7 +54,7 @@ const buttonHandler = e => {
 	switch (e.currentTarget.id) {
 		case 'playButton':
 			checkUserData(e, sections);
-			playMusic();
+			musicSelector();
 			break;
 
 		case 'startGame':
@@ -72,6 +72,7 @@ const buttonHandler = e => {
 		case 'gameMenuButton':
 			windowHandler(e, 'mainMenu', sections);
 			clearGameElements();
+			pauseMusic();
 			break;
 
 		case 'resetButton':
@@ -243,6 +244,8 @@ const savePlayerData = player => {
 	localStorage.setItem('player', JSON.stringify(player));
 };
 
+const getPlayerStats = () => JSON.parse(localStorage.getItem('player'));
+
 const loadPlayerData = () => {
 	if (localStorageKeys().includes('player')) {
 		const { name, charIMG, hp, level, dmgMultiplier } = JSON.parse(
@@ -405,18 +408,14 @@ const compareRolls = () => {
 
 const checkGameEnd = (player, opponent) => {
 	if (player.hp <= 0) {
-		console.log('YOU LOSE- GAME OVER');
 		localStorage.removeItem('player');
 		localStorage.removeItem('opponent');
 		endScreen();
 	}
 	if (opponent.hp <= 0) {
-		console.log('YOU WIN - NEXT ROUND');
 		localStorage.removeItem('opponent');
-		console.log(`LEVEL: ${player.level}`);
 		player.level++;
 		player.hp = 10;
-		console.log(`LEVEL: ${player.level}`);
 		localStorage.setItem('player', JSON.stringify(player));
 		nextRound();
 	}
@@ -430,6 +429,7 @@ const endScreen = () => {
 	const menuButton = document.createElement('button');
 	music.src = 'assets/audio/deathTheme.mp3';
 	music.play();
+	music.loop = false;
 	menuButton.id = gameMenuButton;
 	menuButton.innerHTML = 'Menu';
 	h2.textContent = 'You Lose!';
@@ -441,6 +441,7 @@ const endScreen = () => {
 		document.getElementById('resultScreen').style.removeProperty('display');
 		document.getElementById('gameWindow').style.display = 'none';
 		resultScreen.innerHTML = '';
+		pauseMusic();
 	});
 	clearGameElements();
 };
@@ -463,10 +464,12 @@ const nextRound = () => {
 		nextRoundButton.innerHTML = 'Endless Mode';
 		music.src = 'assets/audio/victoryTheme.mp3';
 		music.play();
+		music.loop = false;
 	} else {
 		nextRoundButton.innerHTML = 'Next Round';
 		music.src = 'assets/audio/victoryFanfare.mp3';
 		music.play();
+		music.loop = false;
 	}
 
 	div.append(h2);
@@ -479,6 +482,7 @@ const nextRound = () => {
 		document.getElementById('resultScreen').style.removeProperty('display');
 		document.getElementById('gameWindow').style.display = 'none';
 		resultScreen.innerHTML = '';
+		pauseMusic();
 	});
 
 	nextRoundButton.addEventListener('click', () => {
@@ -487,6 +491,7 @@ const nextRound = () => {
 		setTimeout(() => {
 			resultScreen.style.removeProperty('display');
 			resultScreen.innerHTML = '';
+			musicSelector();
 		}, 200);
 	});
 	clearGameElements();
@@ -578,11 +583,8 @@ const audioController = () => {
 
 	const { musicMute, sfxMute } = getSettings();
 
-	music.src = audioFiles[0].path;
-	music.load();
 	music.muted = musicMute;
 
-	music.addEventListener('ended', loadNextTrack);
 	musicSlider.addEventListener('change', musicVolumeCheck);
 
 	sfxSlider.addEventListener('change', sfxVolumeCheck);
@@ -614,18 +616,34 @@ const setSfxVolume = () => {
 	sfx.volume = getSettings().sfxVolume / 100;
 };
 
-const playMusic = () => {
+const musicSelector = () => {
+	console.log('selector');
 	const music = document.getElementById('music');
+	const playerStats = getPlayerStats();
+
+	if (!playerStats) {
+		music.src = audioFiles[0].path;
+	} else {
+		music.src = audioFiles[playerStats.level % audioFiles.length].path;
+	}
+	music.load();
+	music.loop = true;
 	music.play();
 };
 
-const loadNextTrack = () => {
-	let trackID = 0;
-	trackID++;
-	if (trackID >= audioFiles.length) trackID = 0;
-	music.src = audioFiles[trackID].path;
-	music.load();
-	music.play();
+const pauseMusic = () => {
+	const music = document.getElementById('music');
+	music.volume -= 0.1;
+	setTimeout(() => {
+		if (music.volume <= 0.1) {
+			music.volume = 0;
+			music.pause();
+			const { musicVolume } = getSettings();
+			music.volume = musicVolume / 100;
+			return;
+		}
+		pauseMusic();
+	}, 15);
 };
 
 const musicToggle = () => {
