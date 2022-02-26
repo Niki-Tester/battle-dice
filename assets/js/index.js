@@ -1,16 +1,17 @@
 import playerImages from '../data/playerImages.js';
 import opponentImages from '../data/opponentImages.js';
 import Character from '../js/Character.js';
+import audioFiles from '../data/audioFiles.js';
+import sfxFiles from '../data/sfxFiles.js';
 
 let g_MessageTimeOut;
-
-const music = new Audio('assets/audio/menuTheme.mp3');
 
 window.addEventListener('DOMContentLoaded', () => {
 	addButtonListeners();
 	hideSections();
 	addMessageCloseListener();
 	settingsController();
+	audioController();
 
 	const form = document.getElementsByTagName('form')[0];
 	form.addEventListener('submit', e => {
@@ -53,6 +54,7 @@ const buttonHandler = e => {
 	switch (e.currentTarget.id) {
 		case 'playButton':
 			checkUserData(e, sections);
+			playMusic();
 			break;
 
 		case 'startGame':
@@ -80,8 +82,16 @@ const buttonHandler = e => {
 			startRound();
 			break;
 
-		case 'soundControl':
+		case 'menuMusicMute':
 			musicToggle();
+			break;
+
+		case 'settingsMusicMute':
+			musicToggle();
+			break;
+
+		case 'settingsSfxMute':
+			sfxToggle();
 			break;
 
 		default:
@@ -120,19 +130,6 @@ const windowHandler = (e, sectionID, sections) => {
 		e.currentTarget.parentElement.style.display = 'none';
 	}
 	sections.filter(section => section.id === sectionID)[0].style.display = 'flex';
-};
-
-const clearStorage = () => {
-	const message =
-		'Are you sure you want to clear your local storage, you will lose all game progress.';
-	if (confirm(message)) {
-		const settings = JSON.parse(localStorage.getItem('settings'));
-		localStorage.clear();
-		localStorage.setItem('settings', JSON.stringify(settings))
-		messageHandler('Game data cleared.', 'success');
-	} else {
-		messageHandler('Game data not cleared.', 'warn');
-	}
 };
 
 const checkUserData = (e, sections) => {
@@ -324,6 +321,10 @@ const createDice = diceId => {
 const rollDice = dice => {
 	const playerRollElement = document.getElementById('playerRoll');
 	const opponentRollElement = document.getElementById('opponentRoll');
+	const sfx = document.getElementById('sfx');
+	sfx.src = sfxFiles[Math.floor(Math.random() * sfxFiles.length)].path;
+	sfx.play();
+
 	const diceScale = 2;
 	const rollModifier = 8;
 	const diceRoll = Math.floor(Math.random() * 6) + 1;
@@ -427,6 +428,8 @@ const endScreen = () => {
 	const div = document.createElement('div');
 	const h2 = document.createElement('h2');
 	const menuButton = document.createElement('button');
+	music.src = 'assets/audio/deathTheme.mp3';
+	music.play();
 	menuButton.id = gameMenuButton;
 	menuButton.innerHTML = 'Menu';
 	h2.textContent = 'You Lose!';
@@ -458,8 +461,12 @@ const nextRound = () => {
 
 	if (JSON.parse(localStorage.getItem('player')).level >= 4) {
 		nextRoundButton.innerHTML = 'Endless Mode';
+		music.src = 'assets/audio/victoryTheme.mp3';
+		music.play();
 	} else {
 		nextRoundButton.innerHTML = 'Next Round';
+		music.src = 'assets/audio/victoryFanfare.mp3';
+		music.play();
 	}
 
 	div.append(h2);
@@ -490,31 +497,23 @@ const clearGameElements = () => {
 	document.getElementById('playerRoll').innerHTML = '';
 };
 
-const musicToggle = () => {
-	if (music.paused) {
-		music.play();
-	} else {
-		music.pause();
-	}
-};
-
 const settingsController = () => {
 	const musicSlider = document.getElementById('musicSlider');
 	const sfxSlider = document.getElementById('sfxSlider');
 
 	if (!localStorageKeys().includes('settings')) {
 		const settings = {
-			musicToggle: true,
+			musicMute: false,
 			musicVolume: 20,
-			sxfToggle: true,
+			sxfMute: false,
 			sfxVolume: 50,
 		};
 
-		localStorage.setItem('settings', JSON.stringify(settings));
+		saveSettings(settings);
 	}
 
 	musicSlider.addEventListener('input', e => {
-		const settings = JSON.parse(localStorage.getItem('settings'));
+		const settings = getSettings();
 		settings.musicVolume = Number(e.target.value);
 		saveSettings(settings);
 		updateSettingsUI();
@@ -522,15 +521,19 @@ const settingsController = () => {
 	});
 
 	sfxSlider.addEventListener('input', e => {
-		const settings = JSON.parse(localStorage.getItem('settings'));
+		const settings = getSettings();
 		settings.sfxVolume = Number(e.target.value);
 		saveSettings(settings);
 		updateSettingsUI();
+		setSfxVolume();
 	});
 
 	updateSettingsUI();
 	setMusicVolume();
+	setSfxVolume();
 };
+
+const getSettings = () => JSON.parse(localStorage.getItem('settings'));
 
 const saveSettings = settings => {
 	localStorage.setItem('settings', JSON.stringify(settings));
@@ -539,17 +542,121 @@ const saveSettings = settings => {
 const updateSettingsUI = () => {
 	const musicSliderLabel = document.getElementById('musicSliderLabel');
 	const musicSlider = document.getElementById('musicSlider');
+	const menuMusicMute = document.getElementById('menuMusicMute');
+	const settingsMusicMute = document.getElementById('settingsMusicMute');
 
 	const sfxSliderLabel = document.getElementById('sfxSliderLabel');
 	const sfxSlider = document.getElementById('sfxSlider');
+	const settingsSfxMute = document.getElementById('settingsSfxMute');
 
-	const { musicVolume, sfxVolume } = JSON.parse(localStorage.getItem('settings'));
+	const { musicVolume, sfxVolume, musicMute, sfxMute } = getSettings();
 
 	musicSlider.value = musicVolume;
-	sfxSlider.value = sfxVolume;
-
 	musicSliderLabel.firstElementChild.innerHTML = `${musicVolume} &percnt;`;
+
+	musicMute
+		? (menuMusicMute.innerHTML = '<i class="fas fa-volume-mute">')
+		: (menuMusicMute.innerHTML = '<i class="fas fa-volume-up">');
+	musicMute
+		? (settingsMusicMute.innerHTML = '<i class="fas fa-volume-mute">')
+		: (settingsMusicMute.innerHTML = '<i class="fas fa-volume-up">');
+
+	sfxSlider.value = sfxVolume;
 	sfxSliderLabel.firstElementChild.innerHTML = `${sfxVolume} &percnt;`;
+
+	sfxMute
+		? (settingsSfxMute.innerHTML = '<i class="fas fa-volume-mute">')
+		: (settingsSfxMute.innerHTML = '<i class="fas fa-volume-up">');
+};
+
+const audioController = () => {
+	const music = document.getElementById('music');
+	const musicSlider = document.getElementById('musicSlider');
+
+	const sfx = document.getElementById('sfx');
+	const sfxSlider = document.getElementById('sfxSlider');
+
+	const { musicMute, sfxMute } = getSettings();
+
+	music.src = audioFiles[0].path;
+	music.load();
+	music.muted = musicMute;
+
+	music.addEventListener('ended', loadNextTrack);
+	musicSlider.addEventListener('change', musicVolumeCheck);
+
+	sfxSlider.addEventListener('change', sfxVolumeCheck);
+
+	sfx.muted = sfxMute;
+};
+
+const musicVolumeCheck = () => {
+	if (!music.paused) return;
+	music.play();
+	setTimeout(() => {
+		music.pause();
+		music.load();
+	}, 6000);
+};
+
+const setMusicVolume = () => {
+	const music = document.getElementById('music');
+	music.volume = getSettings().musicVolume / 100;
+};
+
+const sfxVolumeCheck = () => {
+	sfx.src = 'assets/audio/diceRoll_3.mp3';
+	sfx.play();
+};
+
+const setSfxVolume = () => {
+	const sfx = document.getElementById('sfx');
+	sfx.volume = getSettings().sfxVolume / 100;
+};
+
+const playMusic = () => {
+	const music = document.getElementById('music');
+	music.play();
+};
+
+const loadNextTrack = () => {
+	let trackID = 0;
+	trackID++;
+	if (trackID >= audioFiles.length) trackID = 0;
+	music.src = audioFiles[trackID].path;
+	music.load();
+	music.play();
+};
+
+const musicToggle = () => {
+	const music = document.getElementById('music');
+	const settings = getSettings();
+	settings.musicMute = !settings.musicMute;
+	music.muted = settings.musicMute;
+	saveSettings(settings);
+	updateSettingsUI();
+};
+
+const sfxToggle = () => {
+	const sfx = document.getElementById('sfx');
+	const settings = getSettings();
+	settings.sfxMute = !settings.sfxMute;
+	sfx.muted = settings.sfxMute;
+	saveSettings(settings);
+	updateSettingsUI();
+};
+
+const clearStorage = () => {
+	const message =
+		'Are you sure you want to clear your local storage, you will lose all game progress.';
+	if (confirm(message)) {
+		const settings = getSettings();
+		localStorage.clear();
+		saveSettings(settings);
+		messageHandler('Game data cleared.', 'success');
+	} else {
+		messageHandler('Game data not cleared.', 'warn');
+	}
 };
 
 const localStorageKeys = () => {
@@ -560,21 +667,9 @@ const localStorageKeys = () => {
 	return keys;
 };
 
-const setMusicVolume = () => {
-	music.volume = JSON.parse(localStorage.getItem('settings')).musicVolume / 100;
-};
-
 window.addEventListener('storage', e => {
 	if (!e.key) return;
 	localStorage.setItem(e.key, e.oldValue);
-});
-
-music.addEventListener('ended', () => {
-	music.src = 'assets/audio/battleThemeA.mp3';
-	music.load();
-	setTimeout(() => {
-		music.play();
-	}, 3000);
 });
 
 // TODO: FIX PLAYER HEALTH NOT RESETTING ON START OF NEW ROUND
