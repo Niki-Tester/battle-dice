@@ -618,7 +618,6 @@ const setSfxVolume = () => {
 };
 
 const musicSelector = () => {
-	console.log('selector');
 	const music = document.getElementById('music');
 	const playerStats = getPlayerStats();
 
@@ -645,6 +644,10 @@ const pauseMusic = () => {
 		}
 		pauseMusic();
 	}, 15);
+};
+
+const resumeMusic = () => {
+	document.getElementById('music').play();
 };
 
 const musicToggle = () => {
@@ -690,5 +693,9 @@ window.addEventListener('storage', e => {
 	if (!e.key) return;
 	localStorage.setItem(e.key, e.oldValue);
 });
+
+window.addEventListener('focus', resumeMusic);
+
+window.addEventListener('blur', pauseMusic);
 
 // TODO: FIX PLAYER HEALTH NOT RESETTING ON START OF NEW ROUND
