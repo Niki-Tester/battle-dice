@@ -77,6 +77,7 @@ const buttonHandler = e => {
 			break;
 
 		case 'playerRollButton':
+			startRound();
 			break;
 
 		case 'soundControl':
@@ -135,7 +136,7 @@ const clearStorage = () => {
 };
 
 const checkUserData = (e, sections) => {
-	if (localStorage.length === 0) {
+	if (!localStorageKeys().includes('player')) {
 		getPlayerImages();
 		windowHandler(e, 'userData', sections);
 	} else startGame(e, null, null, sections);
@@ -246,7 +247,7 @@ const savePlayerData = player => {
 };
 
 const loadPlayerData = () => {
-	if (!localStorageKeys().includes('player')) {
+	if (localStorageKeys().includes('player')) {
 		const { name, charIMG, hp, level, dmgMultiplier } = JSON.parse(
 			localStorage.getItem('player')
 		);
@@ -259,7 +260,7 @@ const saveOpponentData = opponent => {
 };
 
 const loadOpponentData = () => {
-	if (!localStorageKeys().includes('opponent')) {
+	if (localStorageKeys().includes('opponent')) {
 		setOpponentElements();
 		return;
 	}
