@@ -32,16 +32,16 @@
 			<section id="settingsMenu">
 				<h2>Settings</h2>
 				<div class="settingGroup">
-					<label for="musicSlider">Music: <span>50&percnt;</span></label>
+					<label id="musicSliderLabel" for="musicSlider">Music: <span></span></label>
 					<div class="sliderGroup">
-						<input type="range" name="musicSlider" id="musicSlider" />
+						<input type="range" name="musicSlider" id="musicSlider" min="0" max="100" />
 						<button id="musicToggle"><i class="fas fa-volume-mute"></i></button>
 					</div>
 				</div>
 				<div class="settingGroup">
-					<label for="sfxSlider">Sfx: <span>50&percnt;</span></label>
+					<label id="sfxSliderLabel" for="sfxSlider">Sfx: <span></span></label>
 					<div class="sliderGroup">
-						<input type="range" name="sfxSlider" id="sfxSlider" />
+						<input type="range" name="sfxSlider" id="sfxSlider" min="0" max="100" />
 						<button id="sfxToggle"><i class="fas fa-volume-mute"></i></button>
 					</div>
 				</div>
