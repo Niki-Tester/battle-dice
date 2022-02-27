@@ -419,6 +419,7 @@ const checkGameEnd = (player, opponent) => {
 		player.hp = 10;
 		localStorage.setItem('player', JSON.stringify(player));
 		nextRound();
+		setPlayerElements();
 	}
 };
 
@@ -697,5 +698,3 @@ window.addEventListener('storage', e => {
 window.addEventListener('focus', resumeMusic);
 
 window.addEventListener('blur', pauseMusic);
-
-// TODO: FIX PLAYER HEALTH NOT RESETTING ON START OF NEW ROUND
