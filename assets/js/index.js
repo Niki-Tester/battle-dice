@@ -21,6 +21,10 @@ window.addEventListener('DOMContentLoaded', () => {
 			'warn'
 		);
 	});
+
+	window.addEventListener('focus', resumeMusic);
+
+	window.addEventListener('blur', pauseMusic);
 });
 
 const hideSections = () => {
@@ -648,7 +652,9 @@ const pauseMusic = () => {
 };
 
 const resumeMusic = () => {
-	document.getElementById('music').play();
+	const music = document.getElementById('music');
+	if (!music.src) return;
+	music.play();
 };
 
 const musicToggle = () => {
@@ -694,7 +700,3 @@ window.addEventListener('storage', e => {
 	if (!e.key) return;
 	localStorage.setItem(e.key, e.oldValue);
 });
-
-window.addEventListener('focus', resumeMusic);
-
-window.addEventListener('blur', pauseMusic);
