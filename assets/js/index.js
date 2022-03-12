@@ -332,12 +332,13 @@ const rollDice = dice => {
 	const opponentRollElement = document.getElementById('opponentRoll');
 	const sfx = document.getElementById('sfx');
 	sfx.src = sfxFiles[Math.floor(Math.random() * sfxFiles.length)].path;
-	sfx.play();
 
 	const diceScale = 2;
 	const rollModifier = 8;
 	const diceRoll = Math.floor(Math.random() * 6) + 1;
 	setTimeout(() => {
+		sfx.play();
+
 		dice.style.transform = `
 		rotateX(${Math.floor(Math.random() * 360) * rollModifier}deg) 
 		rotateY(${Math.floor(Math.random() * 360) * rollModifier}deg) 
