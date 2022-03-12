@@ -103,7 +103,7 @@ const buttonHandler = e => {
 
 const messageHandler = (message, type) => {
 	window.clearTimeout(g_MessageTimeOut);
-	messageBox.classList.add(type);
+	messageBox.classList = type;
 	messageBox.style.transform = 'translateY(0px)';
 	messageBox.firstElementChild.textContent = message;
 	g_MessageTimeOut = setTimeout(() => {
