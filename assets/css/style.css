@@ -410,16 +410,16 @@ noscript h3 {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	height: 200px;
-	width: 200px;
+	height: 60%;
+	width: 90%;
 	position: relative;
 }
 
 #gameWindow #playerDice,
 #gameWindow #opponentDice {
 	position: absolute;
-	left: 64px;
-	top: 64px;
+	left: calc(50% - 32px);
+	top: calc(50% - 32px);
 	transform-style: preserve-3d;
 	transition: all 1s ease-out;
 	transform-origin: 32px 32px;
