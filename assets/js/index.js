@@ -595,9 +595,9 @@ const audioController = () => {
 
 	musicSlider.addEventListener('change', musicVolumeCheck);
 
-	sfxSlider.addEventListener('change', sfxVolumeCheck);
-
 	sfx.muted = sfxMute;
+
+	sfxSlider.addEventListener('change', sfxVolumeCheck);
 };
 
 const musicVolumeCheck = () => {
