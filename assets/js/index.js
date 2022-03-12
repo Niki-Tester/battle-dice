@@ -601,12 +601,10 @@ const audioController = () => {
 };
 
 const musicVolumeCheck = () => {
+	const music = document.getElementById('music');
 	if (!music.paused) return;
+	music.src = 'assets/audio/victoryFanfare.mp3';
 	music.play();
-	setTimeout(() => {
-		music.pause();
-		music.load();
-	}, 6000);
 };
 
 const setMusicVolume = () => {
