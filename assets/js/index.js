@@ -338,7 +338,6 @@ const rollDice = dice => {
 	const diceRoll = Math.floor(Math.random() * 6) + 1;
 	setTimeout(() => {
 		sfx.play();
-
 		dice.style.transform = `
 		rotateX(${Math.floor(Math.random() * 360) * rollModifier}deg) 
 		rotateY(${Math.floor(Math.random() * 360) * rollModifier}deg) 
