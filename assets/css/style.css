@@ -36,6 +36,10 @@ body {
 	color: var(--text-light);
 }
 
+section {
+	background-image: url('../img/wall128x128.webp');
+}
+
 button {
 	background-color: var(--button-gold);
 	color: #000;
@@ -60,7 +64,6 @@ button:disabled {
 main {
 	height: 100%;
 	position: relative;
-	background-image: url('../img/wall128x128.webp');
 }
 
 h2 {
@@ -87,6 +90,7 @@ h3 {
 	z-index: 1;
 	transform: translateY(-50px);
 	transition: transform ease-in-out 300ms;
+	background-image: none;
 }
 
 #messageBox #message {
