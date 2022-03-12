@@ -13,7 +13,9 @@
 	--bg-dark: #555;
 	--bg-accent-dark: #660000;
 	--bg-accent: #910000;
-	--gb-gold: #f4df5e;
+	--bg-gold: #f4df5e;
+	--bg-win: #146600;
+	--bg-lose: #850000;
 
 	/* Other Colours */
 	--button-gold: #f4df5e;
@@ -215,7 +217,7 @@ noscript h3 {
 }
 
 #userData .selected {
-	background-color: rgba(255, 208, 0, 0.8);
+	background-color: var(--bg-gold);
 	border-radius: 50%;
 }
 
@@ -271,7 +273,7 @@ noscript h3 {
 	width: 10px;
 	height: 50px;
 	-webkit-appearance: none;
-	background: var(--gb-gold);
+	background: var(--bg-gold);
 	box-shadow: -80px 0 0 80px var(--bg-accent);
 }
 
