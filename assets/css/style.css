@@ -393,8 +393,6 @@ noscript h3 {
 	max-width: 30%;
 }
 
-/* #region Dice */
-
 #gameWindow #diceArea {
 	display: flex;
 	align-items: center;
@@ -454,7 +452,7 @@ noscript h3 {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #660000;
+	background-color: #146600;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -467,7 +465,6 @@ noscript h3 {
 #gameWindow #resultScreen button {
 	margin-bottom: 1rem;
 }
-/* #endregion */
 /* #endregion */
 
 /* #region 404 - Not Found */
