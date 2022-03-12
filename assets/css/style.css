@@ -204,14 +204,14 @@ noscript h3 {
 
 #userData #characterSelection {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 }
 
 #userData #characterSelection img {
 	height: 90px;
 	-webkit-filter: drop-shadow(10px 10px 5px #222);
 	filter: drop-shadow(10px 10px 5px #222);
-	margin: 0.5rem;
+	margin: 0.25rem 1rem;
 }
 
 #userData .selected {
