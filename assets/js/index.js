@@ -303,6 +303,7 @@ const setOpponentElements = () => {
 
 const startRound = () => {
 	document.getElementById('playerRollButton').disabled = true;
+	document.getElementById('gameMenuButton').disabled = true;
 	document.getElementById('playerRoll').innerHTML = '';
 	document.getElementById('opponentRoll').innerHTML = '';
 	playerRollButton;
@@ -391,6 +392,7 @@ const rollDice = dice => {
 			opponentRollElement.append(opponentRollImage);
 			dice.remove();
 			document.getElementById('playerRollButton').disabled = false;
+			document.getElementById('gameMenuButton').disabled = false;
 			compareRolls();
 		}
 	}, 4000);
