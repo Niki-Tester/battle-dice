@@ -532,3 +532,23 @@ noscript h3 {
 	}
 }
 /* #endregion */
+
+/* #region min-width: 425px */
+@media only screen and (min-width: 425px) {
+	#gameWindow #opponentImg,
+	#gameWindow #playerImg {
+		height: 150px;
+	}
+
+	#gameWindow #opponent > div > p,
+	#gameWindow #player > div > p {
+		top: 85px;
+		left: 45px;
+	}
+
+	#gameWindow p {
+		font-size: 1.2rem;
+		margin: 1rem;
+	}
+}
+/* #endregion */
