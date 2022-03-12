@@ -7,20 +7,12 @@ import sfxFiles from '../data/sfxFiles.js';
 let g_MessageTimeOut;
 
 window.addEventListener('DOMContentLoaded', () => {
-	addButtonListeners();
 	hideSections();
+	addButtonListeners();
+	addFormListener();
 	addMessageCloseListener();
 	settingsController();
 	audioController();
-
-	const form = document.getElementsByTagName('form')[0];
-	form.addEventListener('submit', e => {
-		e.preventDefault();
-		messageHandler(
-			'Please use the "Start" button to submit your name & selection.',
-			'warn'
-		);
-	});
 });
 
 const hideSections = () => {
@@ -35,6 +27,14 @@ const hideSections = () => {
 const addButtonListeners = () => {
 	const buttons = [...document.querySelectorAll('button')];
 	buttons.forEach(button => button.addEventListener('click', buttonHandler));
+};
+
+const addFormListener = () => {
+	const form = document.getElementById('userForm');
+	form.addEventListener('submit', e => {
+		e.preventDefault();
+		document.getElementById('startGame').click();
+	});
 };
 
 const addMessageCloseListener = () => {
