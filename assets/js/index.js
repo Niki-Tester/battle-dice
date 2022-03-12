@@ -21,10 +21,6 @@ window.addEventListener('DOMContentLoaded', () => {
 			'warn'
 		);
 	});
-
-	window.addEventListener('focus', resumeMusic);
-
-	window.addEventListener('blur', pauseMusic);
 });
 
 const hideSections = () => {
@@ -592,12 +588,13 @@ const audioController = () => {
 	const { musicMute, sfxMute } = getSettings();
 
 	music.muted = musicMute;
-
 	musicSlider.addEventListener('change', musicVolumeCheck);
 
 	sfx.muted = sfxMute;
-
 	sfxSlider.addEventListener('change', sfxVolumeCheck);
+
+	window.addEventListener('focus', resumeMusic);
+	window.addEventListener('blur', pauseMusic);
 };
 
 const musicVolumeCheck = () => {
