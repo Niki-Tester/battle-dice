@@ -38,6 +38,7 @@ body {
 
 section {
 	background-image: url('../img/wall128x128.webp');
+	outline: #f4df5e88 10px solid;
 }
 
 button {
@@ -137,6 +138,15 @@ noscript h3 {
 	text-align: center;
 	color: var(--text-light);
 	font-family: sans-serif;
+}
+
+#backgroundImage {
+	position: fixed;
+	bottom: 0;
+	z-index: -1;
+	background-size: cover;
+	background-blend-mode: screen;
+	background-color: #000;
 }
 
 /* #endregion */
