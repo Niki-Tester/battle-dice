@@ -517,9 +517,9 @@ const settingsController = () => {
 
 	if (!localStorageKeys().includes('settings')) {
 		const settings = {
-			musicMute: false,
+			musicMute: true,
 			musicVolume: 20,
-			sxfMute: false,
+			sxfMute: true,
 			sfxVolume: 50,
 		};
 
