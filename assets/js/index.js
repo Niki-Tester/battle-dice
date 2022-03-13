@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
 	addMessageCloseListener();
 	settingsController();
 	audioController();
+	setHighScore();
 });
 
 const hideSections = () => {
@@ -410,6 +411,9 @@ const compareRolls = () => {
 
 const checkGameEnd = (player, opponent) => {
 	if (player.hp <= 0) {
+		const { level } = getPlayerStats();
+		saveHighScore(level);
+		setHighScore();
 		localStorage.removeItem('player');
 		localStorage.removeItem('opponent');
 		endScreen();
@@ -464,6 +468,10 @@ const nextRound = () => {
 	const h2 = document.createElement('h2');
 	const menuButton = document.createElement('button');
 	const nextRoundButton = document.createElement('button');
+
+	const { level } = getPlayerStats();
+	saveHighScore(level);
+	setHighScore();
 
 	h2.textContent = 'You Win!';
 
@@ -565,8 +573,6 @@ const updateSettingsUI = () => {
 	const settingsSfxMute = document.getElementById('settingsSfxMute');
 
 	const { musicVolume, sfxVolume, musicMute, sfxMute } = getSettings();
-
-	console.log(sfxMute);
 
 	musicSlider.value = musicVolume;
 	musicSliderLabel.firstElementChild.innerHTML = `${musicVolume} &percnt;`;
@@ -678,6 +684,20 @@ const sfxToggle = () => {
 	sfx.muted = settings.sfxMute;
 	saveSettings(settings);
 	updateSettingsUI();
+};
+
+const getHighScore = () => {
+	if (!localStorageKeys().includes('highScore')) saveHighScore(0);
+	return localStorage.getItem('highScore');
+};
+
+const saveHighScore = score => {
+	localStorage.setItem('highScore', score);
+};
+
+const setHighScore = () => {
+	const hightScore = document.getElementById('highScore');
+	hightScore.firstElementChild.innerHTML = getHighScore();
 };
 
 const clearStorage = () => {
