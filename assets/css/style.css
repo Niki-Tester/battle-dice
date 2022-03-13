@@ -457,7 +457,7 @@ noscript h3 {
 	transform: rotateX(90deg) translateZ(31px);
 }
 .dice-face-6 {
-	background-image: url('../img/dice/3_dots.webp');
+	background-image: url('../img/dice/3_dots_small.webp');
 	transform: rotateX(-90deg) translateZ(31px);
 }
 
@@ -591,6 +591,48 @@ noscript h3 {
 
 	#howToPlayMenu h2 {
 		font-size: 1.5rem;
+	}
+
+	#gameWindow #playerDice,
+	#gameWindow #opponentDice {
+		left: calc(50% - 64px);
+		top: calc(50% - 64px);
+		transform-origin: 64px 64px;
+	}
+
+	#gameWindow .dice-face {
+		height: 128px;
+		width: 128px;
+	}
+
+	.dice-face-1 {
+		background-image: url('../img/dice/1_dots.webp');
+		transform: rotateY(0deg) translateZ(63px);
+	}
+
+	.dice-face-2 {
+		background-image: url('../img/dice/5_dots.webp');
+		transform: rotateY(90deg) translateZ(63px);
+	}
+
+	.dice-face-3 {
+		background-image: url('../img/dice/6_dots.webp');
+		transform: rotateY(180deg) translateZ(63px);
+	}
+
+	.dice-face-4 {
+		background-image: url('../img/dice/2_dots.webp');
+		transform: rotateY(-90deg) translateZ(63px);
+	}
+
+	.dice-face-5 {
+		background-image: url('../img/dice/4_dots.webp');
+		transform: rotateX(90deg) translateZ(63px);
+	}
+
+	.dice-face-6 {
+		background-image: url('../img/dice/3_dots.webp');
+		transform: rotateX(-90deg) translateZ(63px);
 	}
 }
 /* #endregion */
