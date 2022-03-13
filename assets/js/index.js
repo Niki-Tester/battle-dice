@@ -314,7 +314,6 @@ const createDice = diceId => {
 		const diceFace = document.createElement('div');
 		diceFace.classList.add(`dice-face`);
 		diceFace.classList.add(`dice-face-${i}`);
-		diceFace.innerText = `${i}`;
 		dice.append(diceFace);
 	}
 
@@ -428,31 +427,37 @@ const checkGameEnd = (player, opponent) => {
 const endScreen = () => {
 	const resultScreen = document.getElementById('resultScreen');
 	resultScreen.style.display = 'flex';
+	resultScreen.style.backgroundColor = '#661d00';
+
 	const div = document.createElement('div');
 	const h2 = document.createElement('h2');
 	const menuButton = document.createElement('button');
 	music.src = 'assets/audio/deathTheme.mp3';
 	music.play();
 	music.loop = false;
-	menuButton.id = gameMenuButton;
+	menuButton.id = 'gameMenuButton';
 	menuButton.innerHTML = 'Menu';
 	h2.textContent = 'You Lose!';
 	div.append(h2);
 	resultScreen.append(div);
 	resultScreen.append(menuButton);
+
 	menuButton.addEventListener('click', e => {
 		document.getElementById('mainMenu').style.removeProperty('display');
 		document.getElementById('resultScreen').style.removeProperty('display');
-		document.getElementById('gameWindow').style.display = 'none';
+		document.getElementById('gameWindow').style.removeProperty('display');
 		resultScreen.innerHTML = '';
 		pauseMusic();
+		music.src = '';
 	});
+
 	clearGameElements();
 };
 
 const nextRound = () => {
 	const resultScreen = document.getElementById('resultScreen');
 	resultScreen.style.display = 'flex';
+	resultScreen.style.backgroundColor = '#146600';
 
 	const div = document.createElement('div');
 	const h2 = document.createElement('h2');
@@ -484,7 +489,7 @@ const nextRound = () => {
 	menuButton.addEventListener('click', e => {
 		document.getElementById('mainMenu').style.removeProperty('display');
 		document.getElementById('resultScreen').style.removeProperty('display');
-		document.getElementById('gameWindow').style.display = 'none';
+		document.getElementById('gameWindow').style.removeProperty('display');
 		resultScreen.innerHTML = '';
 		pauseMusic();
 	});
