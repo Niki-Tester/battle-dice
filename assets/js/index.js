@@ -303,7 +303,6 @@ const startRound = () => {
 	document.getElementById('gameMenuButton').disabled = true;
 	document.getElementById('playerRoll').innerHTML = '';
 	document.getElementById('opponentRoll').innerHTML = '';
-	playerRollButton;
 	createDice('player');
 };
 
