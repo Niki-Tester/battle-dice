@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 import playerImages from '../data/playerImages.js';
 import opponentImages from '../data/opponentImages.js';
 import Character from '../js/Character.js';
@@ -103,6 +104,7 @@ const buttonHandler = e => {
 };
 
 const messageHandler = (message, type) => {
+	const messageBox = document.getElementById('messageBox');
 	window.clearTimeout(g_MessageTimeOut);
 	messageBox.classList = type;
 	messageBox.style.transform = 'translateY(0px)';
@@ -113,12 +115,14 @@ const messageHandler = (message, type) => {
 };
 
 const closeMessage = () => {
+	const messageBox = document.getElementById('messageBox');
 	window.clearTimeout(g_MessageTimeOut);
 	const type = messageBox.classList[0];
 	clearStyles(type);
 };
 
 const clearStyles = type => {
+	const messageBox = document.getElementById('messageBox');
 	messageBox.style.removeProperty('transform');
 	setTimeout(() => {
 		messageBox.classList.remove(type);
@@ -429,12 +433,14 @@ const checkGameEnd = (player, opponent) => {
 
 const endScreen = () => {
 	const resultScreen = document.getElementById('resultScreen');
-	resultScreen.style.display = 'flex';
-	resultScreen.style.backgroundColor = '#661d00';
-
 	const div = document.createElement('div');
 	const h2 = document.createElement('h2');
 	const menuButton = document.createElement('button');
+	const music = document.getElementById('music');
+
+	resultScreen.style.display = 'flex';
+	resultScreen.style.backgroundColor = '#661d00';
+
 	music.src = 'assets/audio/deathTheme.mp3';
 	music.play();
 	music.loop = false;
@@ -459,16 +465,17 @@ const endScreen = () => {
 };
 
 const nextRound = () => {
+	const music = document.getElementById('music');
 	const resultScreen = document.getElementById('resultScreen');
-	resultScreen.style.display = 'flex';
-	resultScreen.style.backgroundColor = '#146600';
-
 	const div = document.createElement('div');
 	const h2 = document.createElement('h2');
 	const menuButton = document.createElement('button');
 	const nextRoundButton = document.createElement('button');
-
 	const { level } = getPlayerStats();
+
+	resultScreen.style.backgroundColor = '#146600';
+
+	resultScreen.style.display = 'flex';
 	saveHighScore(level);
 	setHighScore();
 
@@ -623,6 +630,7 @@ const setMusicVolume = () => {
 };
 
 const sfxVolumeCheck = () => {
+	const sfx = document.getElementById('sfx');
 	sfx.src = 'assets/audio/diceRoll_3.mp3';
 	sfx.play();
 };
