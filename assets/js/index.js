@@ -466,7 +466,7 @@ const nextRound = () => {
 
 	h2.textContent = 'You Win!';
 
-	menuButton.id = gameMenuButton;
+	menuButton.id = 'gameMenuButton';
 	menuButton.innerHTML = 'Menu';
 
 	if (JSON.parse(localStorage.getItem('player')).level >= 4) {
