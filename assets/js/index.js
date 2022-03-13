@@ -519,7 +519,7 @@ const settingsController = () => {
 		const settings = {
 			musicMute: true,
 			musicVolume: 20,
-			sxfMute: true,
+			sfxMute: true,
 			sfxVolume: 50,
 		};
 
@@ -564,6 +564,8 @@ const updateSettingsUI = () => {
 	const settingsSfxMute = document.getElementById('settingsSfxMute');
 
 	const { musicVolume, sfxVolume, musicMute, sfxMute } = getSettings();
+
+	console.log(sfxMute);
 
 	musicSlider.value = musicVolume;
 	musicSliderLabel.firstElementChild.innerHTML = `${musicVolume} &percnt;`;
