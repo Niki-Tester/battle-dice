@@ -442,7 +442,7 @@ const endScreen = () => {
 	resultScreen.append(div);
 	resultScreen.append(menuButton);
 
-	menuButton.addEventListener('click', e => {
+	menuButton.addEventListener('click', () => {
 		document.getElementById('mainMenu').style.removeProperty('display');
 		document.getElementById('resultScreen').style.removeProperty('display');
 		document.getElementById('gameWindow').style.removeProperty('display');
@@ -486,7 +486,7 @@ const nextRound = () => {
 	resultScreen.append(menuButton);
 	resultScreen.append(nextRoundButton);
 
-	menuButton.addEventListener('click', e => {
+	menuButton.addEventListener('click', () => {
 		document.getElementById('mainMenu').style.removeProperty('display');
 		document.getElementById('resultScreen').style.removeProperty('display');
 		document.getElementById('gameWindow').style.removeProperty('display');
