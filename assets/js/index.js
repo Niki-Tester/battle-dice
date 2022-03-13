@@ -445,7 +445,8 @@ const endScreen = () => {
 	menuButton.addEventListener('click', () => {
 		document.getElementById('mainMenu').style.removeProperty('display');
 		document.getElementById('resultScreen').style.removeProperty('display');
-		document.getElementById('gameWindow').style.removeProperty('display');
+		document.getElementById('gameWindow').style.display = 'none';
+
 		resultScreen.innerHTML = '';
 		pauseMusic();
 		music.src = '';
@@ -489,7 +490,7 @@ const nextRound = () => {
 	menuButton.addEventListener('click', () => {
 		document.getElementById('mainMenu').style.removeProperty('display');
 		document.getElementById('resultScreen').style.removeProperty('display');
-		document.getElementById('gameWindow').style.removeProperty('display');
+		document.getElementById('gameWindow').style.display = 'none';
 		resultScreen.innerHTML = '';
 		pauseMusic();
 	});
