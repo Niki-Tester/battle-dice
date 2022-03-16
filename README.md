@@ -1,69 +1,74 @@
-![Place holder for amireponsive image]()
+![](doc/amireponsive.png)
 
 ## **Project Overview**
 
 The aim behind this project is to demonstrate my skills in the following areas:
 
-* Design, develop and implement a dynamic Frontend web application using HTML, CSS and JavaScript.
+- Design, develop and implement a dynamic Frontend web application using HTML, CSS and JavaScript.
 
-* Implement Frontend interactivity, using core JavaScript, JavaScript libraries and/or Application Programming Interfaces (APIs).
+- Implement Frontend interactivity, using core JavaScript, JavaScript libraries and/or Application Programming Interfaces (APIs).
 
-* Test an interactive frontend web application throughout the development, implementation and deployment stages.
+- Test an interactive frontend web application throughout the development, implementation and deployment stages.
 
-* Deploy an interactive Frontend web application to a Cloud platform.
+- Deploy an interactive Frontend web application to a Cloud platform.
 
-* Demonstrate and document the development process through a version control system such as GitHub.
+- Demonstrate and document the development process through a version control system such as GitHub.
 
 ## User Experience (UX)
 
--   ### User stories
+- ### User stories
 
-    -   #### First Time Visitor Goals
-        -   As a first time visitor, I want to be able to clearly understand the purpose of the site.
-        
-        -   As a first time visitor, I want to be able to understand the rules of the game.
-        
-        -   As a first time visitor, I want to play the game.
+  - #### First Time Visitor Goals
 
-    -   #### Returning Visitor Goals
-        -   As a returning visitor, I want to be able to play a different character.
-        
-        -   As a returning visitor, I want to be able to change the colour of my dice.
+    - As a first time visitor, I want to be able to clearly understand the purpose of the site.
 
-        -   As a returning visitor, I want to be able to play at a harder difficulty.
+    - As a first time visitor, I want to be able to understand the rules of the game.
 
-    -   #### Frequent User Goals
-        -   As a frequent user, I want to be able to see my high score.
+    - As a first time visitor, I want to play the game.
 
-        -   As a frequent user, I want to be able to play at the hardest difficulty.
+  - #### Returning Visitor Goals
 
--   ### Design
-    -   #### Colour Scheme
-        -   
+    - As a returning visitor, I want to be able to play a different character.
+
+  - #### Frequent User Goals
+    - As a frequent user, I want to be able to see my highscore.
+
+- ### Design
+  - #### Colour Scheme
+  - - ![fafafa](https://via.placeholder.com/15/fafafa/000000?text=+) `#fafafa`
+  - - ![555555](https://via.placeholder.com/15/555555/000000?text=+) `#555555`
+  - - ![660000](https://via.placeholder.com/15/660000/000000?text=+) `#660000`
+  - - ![910000](https://via.placeholder.com/15/910000/000000?text=+) `#910000`
+  - - ![850000](https://via.placeholder.com/15/850000/000000?text=+) `#850000`
+  - - ![146600](https://via.placeholder.com/15/146600/000000?text=+) `#146600`
+  - - ![f4df5e](https://via.placeholder.com/15/f4df5e/000000?text=+) `#f4df5e`
+
+![](doc/contrastgrid.png)
 
     -   #### Typography
-        -   
+        -
 
     -   #### Imagery
-        -   
+        -
 
-*   ### Wireframes
-    -   #### Mobile:
-        -   [Main Menu](doc/wireframes/mobile/MainMenu.png)
-        -   [Settings Menu](doc/wireframes/mobile/Settings.png)
-        -   [How To Play Menu](doc/wireframes/mobile/HelpRules.png)
-        -   [Gameplay Start](doc/wireframes/mobile/GameStart.png)
-        -   [Gameplay Round Result](doc/wireframes/mobile/GameRoundResult.png)
-        -   [Gameplay End](doc/wireframes/mobile/GameEnd.png)
+- ### Wireframes
 
-    -   #### Desktop:
-        -   [Main Menu](doc/wireframes/desktop/MainMenu.png)
-        -   [Settings Menu](doc/wireframes/desktop/Settings.png)
-        -   [How To Play Menu](doc/wireframes/desktop/HelpRules.png)
-        -   [Gameplay Start](doc/wireframes/desktop/GameStart.png)
-        -   [Gameplay Round Result](doc/wireframes/desktop/GameRoundResult.png)
-        -   [Gameplay End](doc/wireframes/desktop/GameEnd.png)   
+  - #### Mobile:
 
+    - [Main Menu](doc/wireframes/mobile/MainMenu.png)
+    - [Settings Menu](doc/wireframes/mobile/Settings.png)
+    - [How To Play Menu](doc/wireframes/mobile/HelpRules.png)
+    - [Gameplay Start](doc/wireframes/mobile/GameStart.png)
+    - [Gameplay Round Result](doc/wireframes/mobile/GameRoundResult.png)
+    - [Gameplay End](doc/wireframes/mobile/GameEnd.png)
+
+  - #### Desktop:
+    - [Main Menu](doc/wireframes/desktop/MainMenu.png)
+    - [Settings Menu](doc/wireframes/desktop/Settings.png)
+    - [How To Play Menu](doc/wireframes/desktop/HelpRules.png)
+    - [Gameplay Start](doc/wireframes/desktop/GameStart.png)
+    - [Gameplay Round Result](doc/wireframes/desktop/GameRoundResult.png)
+    - [Gameplay End](doc/wireframes/desktop/GameEnd.png)
 
 ## Features
 
@@ -71,39 +76,34 @@ The aim behind this project is to demonstrate my skills in the following areas:
 
 ### Languages Used
 
--   [HTML5](https://en.wikipedia.org/wiki/HTML5)
--   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
--   [JS](https://en.wikipedia.org/wiki/javascript)
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JS](https://en.wikipedia.org/wiki/javascript)
 
 ### Frameworks, Libraries & Programs Used
 
-1. [Google Fonts:](https://fonts.google.com/)
-    -   
-1. [Font Awesome:](https://fontawesome.com/)
-    -   
+1. ## [Google Fonts:](https://fonts.google.com/)
+1. ## [Font Awesome:](https://fontawesome.com/)
 1. [Git](https://git-scm.com/)
-    -   Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+   - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
-    -   GitHub is used to store the projects code after being pushed from Git.
-1. [Balsamiq:](https://balsamiq.com/)
-    - 
+   - GitHub is used to store the projects code after being pushed from Git.
+1. ## [Balsamiq:](https://balsamiq.com/)
 
 ## Testing
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
 
--   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
--   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
+- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
 
 ### Testing User Stories from User Experience (UX) Section
 
--   #### First Time Visitor Goals
+- #### First Time Visitor Goals
 
+- #### Returning Visitor Goals
 
--   #### Returning Visitor Goals
-
-
--   #### Frequent User Goals
+- #### Frequent User Goals
 
 ### Further Testing
 
@@ -156,22 +156,22 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 ## Credits
 
--   
+-
 
 ### Code
 
-- 
+-
 
 ### Content
 
--   
+-
 
 ### Media
 
--   
+-
 
 ### Acknowledgements
 
--   My Mentor for continuous helpful feedback.
+- My Mentor for continuous helpful feedback.
 
--   Tutor support at Code Institute for their support.
+- Tutor support at Code Institute for their support.
