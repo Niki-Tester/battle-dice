@@ -1,4 +1,4 @@
-![](doc/amireponsive.png)
+![](doc/images/amireponsive.png)
 
 ## **Project Overview**
 
@@ -45,7 +45,7 @@ The aim behind this project is to demonstrate my skills in the following areas:
   - - ![f4df5e](https://via.placeholder.com/15/f4df5e/000000?text=+) `#f4df5e`
 
 - These are the main colours used throughout the project, and contrast was checked between the different colours using a [Contrast Grid](https://contrast-grid.eightshapes.com/).
-  ![](doc/contrastgrid.png)
+  ![](doc/images/contrastgrid.png)
 
 - #### Typography
     - Two fonts are used throughout the project, Acme is used for all main text and buttons. With Rock Salt being used for headings. Sans Serif as the fallback font in case for any reason the font is not being imported into the site correctly.
@@ -107,7 +107,7 @@ Below are links to each wireframe page of the project, created to cover both Mob
 
 Testing has been documented separately, please see the Testing documentation linked below:
 
-- [Testing Documentation](TESTING.md)
+- [Testing Documentation](doc/testing/TESTING.md)
 
 ## Deployment
 
