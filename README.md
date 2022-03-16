@@ -47,10 +47,10 @@ The aim behind this project is to demonstrate my skills in the following areas:
 - These are the main colours used throughout the project, and contrast was checked between the different colours using a [Contrast Grid](https://contrast-grid.eightshapes.com/).
   ![](doc/contrastgrid.png)
 
--   #### Typography
+- #### Typography
     - Two fonts are used throughout the project, Acme is used for all main text and buttons. With Rock Salt being used for headings. Sans Serif as the fallback font in case for any reason the font is not being imported into the site correctly.
 
--   #### Imagery
+- #### Imagery
     - Imagery is especially important in this project, the log is designed to be inviting and also depicting what the game is based around. The background image for each section was chosen because it offers a nice theme and does not distract the user from the games main components. On larger screens the body has a more complex background, chosen to bring some colour to the page, while still not distracting the user from game elements, and helps tie the whole theme together.
 
 - ### Wireframes
