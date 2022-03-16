@@ -156,19 +156,40 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 ## Credits
 
--
 
 ### Code
 
--
+- All code was written and validated by the developer
 
-### Content
-
--
 
 ### Media
 
--
+- Boss and Player character images from [OpenGameArt](https://opengameart.org/):
+    - "Cute Boss Monsters" by [Justin Nichol](https://opengameart.org/users/justin-nichol) licensed CC-BY 3.0, CC-BY 4.0.
+
+- Music from [OpenGameArt](https://opengameart.org/): 
+    - Battle Theme A - "The Battle Of Darkness" by [Fato_Shadow](https://opengameart.org/users/fatoshadow) licensed CC-BY 3.0. CC-BY-SA 3.0, GPL 3.0 GPL 2.0.
+
+    - Battle Theme B - "" by []() licensed .
+
+    - Battle Theme C - "Battle in the winter" by [Jobromedia](https://opengameart.org/users/jobromedia) licensed CC-BY 3.0, GPL 3.0, CC-BY 3.0.
+
+    - Battle Theme D - "Colossal Boss Battle Theme" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed CC-BY 3.0.
+
+    - Battle Theme E - "" by []() licensed .
+
+    - Death Theme  - "" by [Otto Halmén](https://opengameart.org/users/otto-halm%C3%A9n) licensed CC-BY 3.0. OGA-BY 3.0.
+
+    - Victory Theme -  "" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed  CC-BY 3.0.
+
+    - Victory Fanfare - "" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed  CC-BY 3.0.
+
+- SFX from [OpenGameArt](https://opengameart.org/): 
+    - Dice Roll 1-4 - "" by []() licensed .
+
+- Backgrounds from [OpenGameArt](https://opengameart.org/): 
+    - Body Background - "" by []() licensed .
+    - Section Background - "" by []() licensed .
 
 ### Acknowledgements
 
