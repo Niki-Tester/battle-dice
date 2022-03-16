@@ -31,11 +31,12 @@ The aim behind this project is to demonstrate my skills in the following areas:
     - As a returning visitor, I want to be able to play a different character.
 
   - #### Frequent User Goals
-    - As a frequent user, I want to be able to see my highscore.
+    - As a frequent user, I want to be able to see my high score.
 
 - ### Design
+
   - #### Colour Scheme
-  - - ![fafafa](https://via.placeholder.com/15/fafafa/000000?text=+) `#fafafa`
+  - - ![fafafa](https://via.placeholder.com/15/fafafa/?text=+) `#fafafa`
   - - ![555555](https://via.placeholder.com/15/555555/000000?text=+) `#555555`
   - - ![660000](https://via.placeholder.com/15/660000/000000?text=+) `#660000`
   - - ![910000](https://via.placeholder.com/15/910000/000000?text=+) `#910000`
@@ -43,34 +44,42 @@ The aim behind this project is to demonstrate my skills in the following areas:
   - - ![146600](https://via.placeholder.com/15/146600/000000?text=+) `#146600`
   - - ![f4df5e](https://via.placeholder.com/15/f4df5e/000000?text=+) `#f4df5e`
 
-![](doc/contrastgrid.png)
+- These are the main colours used throughout the project, and contrast was checked between the different colours using a [Contrast Grid](https://contrast-grid.eightshapes.com/).
+  ![](doc/contrastgrid.png)
 
-    -   #### Typography
-        -
+      -   #### Typography
+          - Two fonts are used throughout the project, Acme is used for all main text and buttons. With Rock Salt being used for headings. Sans Serif as the fallback font in case for any reason the font is not being imported into the site correctly.
 
-    -   #### Imagery
-        -
+      -   #### Imagery
+          - Imagery is especially important in this project, the log is designed to be inviting and also depicting what the game is based around. The background image for each section was chosen because it offers a nice theme and does not distract the user from the games main components. On larger screens the body has a more complex background, chosen to bring some colour to the page, while still not distracting the user from game elements, and helps tie the whole theme together.
 
 - ### Wireframes
 
-  - #### Mobile:
+To organize and streamline the development process, I created wireframes for this project, to help me during the development process and to prevent scope creep.
 
-    - [Main Menu](doc/wireframes/mobile/MainMenu.png)
-    - [Settings Menu](doc/wireframes/mobile/Settings.png)
-    - [How To Play Menu](doc/wireframes/mobile/HelpRules.png)
-    - [Gameplay Start](doc/wireframes/mobile/GameStart.png)
-    - [Gameplay Round Result](doc/wireframes/mobile/GameRoundResult.png)
-    - [Gameplay End](doc/wireframes/mobile/GameEnd.png)
+Below are links to each wireframe page of the project, created to cover both Mobile and Desktop versions.
 
-  - #### Desktop:
-    - [Main Menu](doc/wireframes/desktop/MainMenu.png)
-    - [Settings Menu](doc/wireframes/desktop/Settings.png)
-    - [How To Play Menu](doc/wireframes/desktop/HelpRules.png)
-    - [Gameplay Start](doc/wireframes/desktop/GameStart.png)
-    - [Gameplay Round Result](doc/wireframes/desktop/GameRoundResult.png)
-    - [Gameplay End](doc/wireframes/desktop/GameEnd.png)
+- #### Mobile:
+
+  - [Main Menu](doc/wireframes/mobile/MainMenu.png)
+  - [Settings Menu](doc/wireframes/mobile/Settings.png)
+  - [How To Play Menu](doc/wireframes/mobile/HelpRules.png)
+  - [Gameplay Start](doc/wireframes/mobile/GameStart.png)
+  - [Gameplay Round Result](doc/wireframes/mobile/GameRoundResult.png)
+  - [Gameplay End](doc/wireframes/mobile/GameEnd.png)
+
+- #### Desktop:
+  - [Main Menu](doc/wireframes/desktop/MainMenu.png)
+  - [Settings Menu](doc/wireframes/desktop/Settings.png)
+  - [How To Play Menu](doc/wireframes/desktop/HelpRules.png)
+  - [Gameplay Start](doc/wireframes/desktop/GameStart.png)
+  - [Gameplay Round Result](doc/wireframes/desktop/GameRoundResult.png)
+  - [Gameplay End](doc/wireframes/desktop/GameEnd.png)
 
 ## Features
+
+- Responsive on all device sizes
+- Interactive elements
 
 ## Technologies Used
 
@@ -83,31 +92,22 @@ The aim behind this project is to demonstrate my skills in the following areas:
 ### Frameworks, Libraries & Programs Used
 
 1. ## [Google Fonts:](https://fonts.google.com/)
+   - [Acme](https://fonts.google.com/specimen/Acme?query=acm)
+   - [Rock Salt](https://fonts.google.com/specimen/Rock+Salt?query=rock+salt)
 1. ## [Font Awesome:](https://fontawesome.com/)
+   - Font Awesome was used for button icons, specifically on audio control elements. These icons were used for aesthetic and UX purposes.
 1. [Git](https://git-scm.com/)
    - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
-   - GitHub is used to store the projects code after being pushed from Git.
-1. ## [Balsamiq:](https://balsamiq.com/)
+   - GitHub is used to store the projects code after being pushed via Git.
+1. [Balsamiq:](https://balsamiq.com/)
+   - Balsamiq was used to create the wireframes during the design process.
 
-## Testing
+# Testing
 
-The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project.
+Testing has been documented separately, please see the Testing documentation linked below:
 
-- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
-
-### Testing User Stories from User Experience (UX) Section
-
-- #### First Time Visitor Goals
-
-- #### Returning Visitor Goals
-
-- #### Frequent User Goals
-
-### Further Testing
-
-### Known Bugs
+- [Testing Documentation](TESTING.md)
 
 ## Deployment
 
