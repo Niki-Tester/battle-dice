@@ -177,7 +177,6 @@ noscript h3 {
 
 #mainMenu #menuLogo {
 	height: 240px;
-	-webkit-filter: drop-shadow(10px 10px 5px #222);
 	filter: drop-shadow(10px 10px 5px #222);
 }
 
@@ -231,7 +230,6 @@ noscript h3 {
 
 #userData #characterSelection img {
 	height: 90px;
-	-webkit-filter: drop-shadow(10px 10px 5px #222);
 	filter: drop-shadow(10px 10px 5px #222);
 	margin: 0.25rem 1rem;
 }
@@ -363,7 +361,6 @@ noscript h3 {
 }
 
 #gameWindow img {
-	-webkit-filter: drop-shadow(5px 5px 5px #222);
 	filter: drop-shadow(5px 5px 5px #222);
 }
 
@@ -508,7 +505,6 @@ noscript h3 {
 
 #notfound img {
 	height: 200px;
-	-webkit-filter: drop-shadow(10px 10px 5px #222);
 	filter: drop-shadow(10px 10px 5px #222);
 }
 
