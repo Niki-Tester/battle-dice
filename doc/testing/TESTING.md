@@ -236,4 +236,4 @@ Commit - [](https://github.com/Niki-Tester/battle-dice/commit/)
 
 --- -->
 
-[return to README.md](../README.md)
+[return to README.md](../../README.md)
