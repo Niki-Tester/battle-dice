@@ -2,7 +2,7 @@
 ## **During Development Testing**
 During the development process, manual testing was carried out in the following ways:-
 
-1. Manually tested each element responsiveness and appearance via using a live server extension for VSCode.
+1. Manually tested each element responsiveness and appearance via a live server extension for VSCode.
     
 1. Published the page on GitHub pages and shared with peers for testing and for them to provide feedback. 
 
@@ -236,4 +236,4 @@ Commit - [](https://github.com/Niki-Tester/battle-dice/commit/)
 
 --- -->
 
-[return to README.md](README.md)
+[return to README.md](../README.md)
