@@ -170,26 +170,26 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 - Music from [OpenGameArt](https://opengameart.org/): 
     - Battle Theme A - "The Battle Of Darkness" by [Fato_Shadow](https://opengameart.org/users/fatoshadow) licensed CC-BY 3.0. CC-BY-SA 3.0, GPL 3.0 GPL 2.0.
 
-    - Battle Theme B - "" by []() licensed .
+    - Battle Theme B - "Orchestral Battle Music" by [Zefz](https://opengameart.org/users/zefz) licensed CC-BY-SA 3.0 GPL 3.0.
 
     - Battle Theme C - "Battle in the winter" by [Jobromedia](https://opengameart.org/users/jobromedia) licensed CC-BY 3.0, GPL 3.0, CC-BY 3.0.
 
     - Battle Theme D - "Colossal Boss Battle Theme" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed CC-BY 3.0.
 
-    - Battle Theme E - "" by []() licensed .
+    - Battle Theme E - "Battle Theme A" by [cynicmusic](https://opengameart.org/content/battle-theme-a#:~:text=Author%3A%C2%A0-,cynicmusic,-Sunday%2C%20December%2015) licensed CC0.
 
-    - Death Theme  - "" by [Otto Halmén](https://opengameart.org/users/otto-halm%C3%A9n) licensed CC-BY 3.0. OGA-BY 3.0.
+    - Death Theme  - "Death Is Just Another Path" by [Otto Halmén](https://opengameart.org/users/otto-halm%C3%A9n) licensed CC-BY 3.0. OGA-BY 3.0.
 
-    - Victory Theme -  "" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed  CC-BY 3.0.
+    - Victory Theme -  "Lively Meadow (Victory Song)" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed  CC-BY 3.0.
 
-    - Victory Fanfare - "" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed  CC-BY 3.0.
+    - Victory Fanfare - "Lively Meadow (Victory Fanfare)" by [Matthew Pablo](https://opengameart.org/users/matthew-pablo) licensed  CC-BY 3.0.
 
 - SFX from [OpenGameArt](https://opengameart.org/): 
-    - Dice Roll 1-4 - "" by []() licensed .
+    - Dice Roll 1-4 - "Wooden dice on wooden table roll" by [Wuzzy](https://opengameart.org/users/wuzzy) licensed CC0.
 
 - Backgrounds from [OpenGameArt](https://opengameart.org/): 
-    - Body Background - "" by []() licensed .
-    - Section Background - "" by []() licensed .
+    - Body Background - "3 Parallax Backgrounds" by [Mobile Game Graphics](https://opengameart.org/users/mobile-game-graphics) licensed GPL 3.0.
+    - Section Background - "Seamless Wall" by [GrumpyDiamond](https://opengameart.org/users/grumpydiamond) licensed CC0.
 
 ### Acknowledgements
 
