@@ -239,21 +239,23 @@ Commit - [9eda09d234f93d55510030a7740d0b5ae5b2a50f](https://github.com/Niki-Test
 Commit - [b8c8f9068643021cb37ea5f7a18f7f3ee7212435](https://github.com/Niki-Tester/battle-dice/commit/b8c8f9068643021cb37ea5f7a18f7f3ee7212435)
 
 ---
-<!-- 
-- **Expected Outcome** - 
+### **Code Validation:**
 
-    - **Issue Found:**
-        - 
+The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project, along with JsHint for validating all Javascript used.
 
-    - **Causes:**
-        - 
+- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
 
-    - **Solution:** 
-        - 
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fniki-tester.github.io%2Fbattle-dice%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+    - W3C CSS Validator displayed no errors, but did display 3 warnings:
 
+    |Style.css Line | Warning |
+    | --- | --- | 
+    | 287 | -webkit-appearance is a vendor extension |
+    | 290 |	::-webkit-slider-thumb is a vendor extended pseudo-element |
+    | 293 | -webkit-appearance is a vendor extension |
 
-Commit - [](https://github.com/Niki-Tester/battle-dice/commit/)
-
---- -->
+    - These warnings relate to the range sliders in the Settings section of the project, and are needed to override the default appearance of the slider thumb and backgrounds.
+    
+- [JsHint](https://jshint.com/)
 
 [Return to README](/README.md)
