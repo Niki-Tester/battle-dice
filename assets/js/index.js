@@ -584,18 +584,18 @@ const updateSettingsUI = () => {
 	musicSliderLabel.firstElementChild.innerHTML = `${musicVolume} &percnt;`;
 
 	musicMute
-		? (menuMusicMute.innerHTML = '<i class="fas fa-volume-mute">')
-		: (menuMusicMute.innerHTML = '<i class="fas fa-volume-up">');
+		? (menuMusicMute.innerHTML = '<i class="fas fa-volume-mute"></i>')
+		: (menuMusicMute.innerHTML = '<i class="fas fa-volume-up"></i>');
 	musicMute
-		? (settingsMusicMute.innerHTML = '<i class="fas fa-volume-mute">')
-		: (settingsMusicMute.innerHTML = '<i class="fas fa-volume-up">');
+		? (settingsMusicMute.innerHTML = '<i class="fas fa-volume-mute"></i>')
+		: (settingsMusicMute.innerHTML = '<i class="fas fa-volume-up"></i>');
 
 	sfxSlider.value = sfxVolume;
 	sfxSliderLabel.firstElementChild.innerHTML = `${sfxVolume} &percnt;`;
 
 	sfxMute
-		? (settingsSfxMute.innerHTML = '<i class="fas fa-volume-mute">')
-		: (settingsSfxMute.innerHTML = '<i class="fas fa-volume-up">');
+		? (settingsSfxMute.innerHTML = '<i class="fas fa-volume-mute"></i>')
+		: (settingsSfxMute.innerHTML = '<i class="fas fa-volume-up"></i>');
 };
 
 const audioController = () => {
