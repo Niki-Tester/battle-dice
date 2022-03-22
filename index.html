@@ -21,11 +21,13 @@
 	<body>
 		<img id="backgroundImage" src="assets/img/background/background.webp" alt="" />
 		<main>
+			<!-- Message box popup -->
 			<section id="messageBox">
 				<p id="message"></p>
 				<i id="messageClose" class="fa fa-times-circle"></i>
 			</section>
 
+			<!-- Main Menu Section -->
 			<section id="mainMenu">
 				<h3 id="highScore">High Score: <span></span></h3>
 				<button id="menuMusicMute" aria-label="Music Mute Toggle"></button>
@@ -41,6 +43,7 @@
 				</div>
 			</section>
 
+			<!-- Settings Menu Section -->
 			<section id="settingsMenu">
 				<h2>Settings</h2>
 				<div id="settings">
@@ -63,6 +66,7 @@
 				<button class="menuButton">Menu</button>
 			</section>
 
+			<!-- Help Menu Section -->
 			<section id="howToPlayMenu">
 				<div class="helpText">
 					<h2>How To Play</h2>
@@ -128,6 +132,7 @@
 				<button class="menuButton">Menu</button>
 			</section>
 
+			<!-- Character Selection Section -->
 			<section id="userData">
 				<form id="userForm">
 					<label for="username">Name:</label>
@@ -139,6 +144,7 @@
 				<button class="menuButton">Menu</button>
 			</section>
 
+			<!-- Main Game Section -->
 			<section id="gameWindow">
 				<div id="opponent">
 					<div>
@@ -173,6 +179,8 @@
 			</section>
 			<audio id="music"></audio>
 			<audio id="sfx"></audio>
+
+			<!-- Message to display if Javascript not supported by browser -->
 			<noscript>
 				<h3>Your Browser Does Not Support JavaScript!</h3>
 			</noscript>
