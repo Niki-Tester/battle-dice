@@ -1,4 +1,3 @@
-/*jshint esversion: 6 */
 import playerImages from '../data/playerImages.js';
 import opponentImages from '../data/opponentImages.js';
 import Character from '../js/Character.js';
