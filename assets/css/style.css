@@ -184,6 +184,10 @@ noscript h3 {
 	filter: drop-shadow(10px 10px 5px #222);
 }
 
+#mainMenu #menuButtons {
+	text-align: center;
+}
+
 #mainMenu #playButton,
 #mainMenu #settingsButton,
 #mainMenu #howToPlayButton {
@@ -573,7 +577,7 @@ noscript h3 {
 /* #endregion */
 
 /* #region min-width: 768px */
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) and (orientation: portrait) {
 	body {
 		display: flex;
 		justify-content: center;
@@ -649,6 +653,115 @@ noscript h3 {
 	.dice-face-6 {
 		background-image: url('../img/dice/3_dots.webp');
 		transform: rotateX(-90deg) translateZ(63px);
+	}
+}
+/* #endregion */
+/* #region orientation landscape */
+@media (orientation: landscape) and (max-device-width: 920px) {
+	#mainMenu {
+		flex-direction: row;
+	}
+
+	#settingsMenu {
+		flex-direction: row;
+	}
+
+	#settingsMenu #settings {
+		display: flex;
+		flex-direction: column;
+		margin: 0 2rem;
+	}
+
+	#settingsMenu .settingGroup label {
+		margin: 0;
+	}
+
+	#settingsMenu #resetButton {
+		margin: 0 1rem 0 0;
+	}
+
+	#settingsMenu .menuButton {
+		margin: 0;
+	}
+
+	#userData h3 {
+		font-size: 1rem;
+	}
+
+	#userData #characterSelection {
+		grid-template-columns: repeat(5, 1fr);
+	}
+
+	#userData #characterSelection img {
+		height: 65px;
+	}
+
+	#userData #startGame {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin-right: 1rem;
+	}
+
+	#userData .menuButton {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-left: 1rem;
+	}
+
+	#gameWindow {
+		flex-direction: row;
+	}
+
+	#gameWindow #opponent {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+	#gameWindow #player {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+	}
+
+	#gameWindow #opponentImg,
+	#gameWindow #playerImg {
+		height: 100px;
+	}
+
+	#gameWindow #gameMenuButton {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 2rem;
+	}
+
+	#gameWindow #playerRollButton {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin: 2rem;
+	}
+
+	#gameWindow #diceArea {
+		position: absolute;
+		top: 20%;
+	}
+
+	#gameWindow #opponent > div > p,
+	#gameWindow #player > div > p {
+		top: 55px;
+		left: 15px;
+	}
+
+	#notfound img {
+		display: none;
+	}
+
+	#notfound h1 {
+		margin-top: 1rem;
 	}
 }
 /* #endregion */
