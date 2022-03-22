@@ -238,12 +238,25 @@ Commit - [9eda09d234f93d55510030a7740d0b5ae5b2a50f](https://github.com/Niki-Test
 
 Commit - [b8c8f9068643021cb37ea5f7a18f7f3ee7212435](https://github.com/Niki-Tester/battle-dice/commit/b8c8f9068643021cb37ea5f7a18f7f3ee7212435)
 
----
+--- 
+### **Known Issues:**
+- During after development testing, a couple of issues were highlighted from other users testing. 
+    - #### **Flickering Elements**:
+        - On iOS devices iPhone/iPad when the user clicks the roll button elements below the dice area flicker. I spent some time trying to look for a cause but I lack the necessary hardware to debug this fully. If I had a MAC & iPhone/iPad I would be able to use the developer tools within Safari to fully debug and gain a better understanding of what may be causing the issue. As this issue is very device specific, and can not be replicated on other devices I have left this as a future fix, to be completed if/when I am able to obtain the tools to debug this issue further.
+
+    - #### **Disabled Audio Sliders**:
+        - On iOS devices iPhone/iPad adjusting the volume sliders in the Settings menu, has no impact on the volume of the music/sfx. As with the previous known issue, this is something that is again very device specific, and is considered a future fix, to be completed if/when I am able to obtain the tools to debug this issue further. 
+        - The volume sliders for iPhone/iPad devices have been disabled within the settings menu so as not to confuse the user. Volume can still be muted, and adjusted using the volume buttons on the users device.
+
+
+
 ### **Code Validation:**
 
 The W3C Markup Validator and W3C CSS Validator Services were used to validate every page of the project to ensure there were no syntax errors in the project, along with JsHint for validating all Javascript used.
 
-- [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results]()
+- [W3C Markup Validator](https://validator.w3.org/) - [Results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fniki-tester.github.io%2Fbattle-dice%2F)
+    - W3C Markup Validator displays no errors, but does display 2 warnings, advising that two sections lack headings, this is by design and is not of concern.
+
 
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fniki-tester.github.io%2Fbattle-dice%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
     - W3C CSS Validator displayed no errors, but did display 3 warnings:
@@ -256,6 +269,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
     - These warnings relate to the range sliders in the Settings section of the project, and are needed to override the default appearance of the slider thumb and backgrounds.
     
-- [JsHint](https://jshint.com/)
+- [JsHint](https://jshint.com/) - Which returned no errors. It is important to note that the /*jshint esversion: 6 */ flag should be used when testing via JsHint. You do this by placing this comment on line 1 of the index.js file.
 
 [Return to README](/README.md)
