@@ -191,6 +191,11 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
     - Body Background - "3 Parallax Backgrounds" by [Mobile Game Graphics](https://opengameart.org/users/mobile-game-graphics) licensed GPL 3.0.
     - Section Background - "Seamless Wall" by [GrumpyDiamond](https://opengameart.org/users/grumpydiamond) licensed CC0.
 
+- Dice Images from [OpenGameArt](https://opengameart.org/): 
+    - Dice Side Images - "Dice" by [JamesWhite](https://opengameart.org/users/jameswhite) licensed CC0.
+
+- Dice Logo from [PNGITEM](https://www.pngitem.com/middle/wmoww_x-gold-clipart-transparent-gold-dice-png-png/):
+    - Dice Logo - "Transparent Gold Dice Png" by [Umatiya Said](https://www.pngitem.com/userpic/14100/)
 ### Acknowledgements
 
 - My Mentor for continuous helpful feedback.
