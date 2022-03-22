@@ -131,7 +131,7 @@ const clearStyles = type => {
 };
 
 const windowHandler = (e, sectionID, sections) => {
-	if (e.target.id === 'gameMenuButton') {
+	if (e.target.id === 'gameMenuButton' || e.target.parentElement.id === 'menuButtons') {
 		e.currentTarget.parentElement.parentElement.style.display = 'none';
 	} else {
 		e.currentTarget.parentElement.style.display = 'none';
