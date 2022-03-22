@@ -557,6 +557,8 @@ const settingsController = () => {
 		setSfxVolume();
 	});
 
+	checkUserOS();
+
 	updateSettingsUI();
 	setMusicVolume();
 	setSfxVolume();
@@ -566,6 +568,15 @@ const getSettings = () => JSON.parse(localStorage.getItem('settings'));
 
 const saveSettings = settings => {
 	localStorage.setItem('settings', JSON.stringify(settings));
+};
+
+const checkUserOS = () => {
+	const iOSDevices = ['iPad', 'iPhone', 'iPod'];
+	// navigator.platform is depreciated, but safari does not currently support the current alternative
+	if (iOSDevices.includes(navigator.platform)) {
+		document.getElementById('musicSlider').disabled = true;
+		document.getElementById('sfxSlider').disabled = true;
+	}
 };
 
 const updateSettingsUI = () => {
@@ -612,9 +623,6 @@ const audioController = () => {
 
 	sfx.muted = sfxMute;
 	sfxSlider.addEventListener('change', sfxVolumeCheck);
-
-	window.addEventListener('focus', resumeMusic);
-	window.addEventListener('blur', pauseMusic);
 };
 
 const musicVolumeCheck = () => {
