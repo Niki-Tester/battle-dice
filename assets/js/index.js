@@ -677,12 +677,6 @@ const pauseMusic = () => {
 	}, 15);
 };
 
-const resumeMusic = () => {
-	const music = document.getElementById('music');
-	if (!music.src) return;
-	music.play();
-};
-
 const musicToggle = () => {
 	const music = document.getElementById('music');
 	const settings = getSettings();
