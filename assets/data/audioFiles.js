@@ -1,3 +1,4 @@
+// List of music file paths, if you want to add further music, append the list below
 const audioFiles = [
 	{
 		path: 'assets/audio/battleThemeA.mp3',
